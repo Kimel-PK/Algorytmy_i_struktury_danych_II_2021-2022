@@ -14,8 +14,18 @@ class SetSimple {
 		}
 	}
 	
+	SetSimple (SetSimple& zbiorB) {
+		
+		N = zbiorB.N;
+		zbior = new bool[N];
+		
+		for (int i = 0; i < N; i++) {
+			zbior[i] = zbiorB[i];
+		}
+	}
+	
 	~SetSimple () {
-		delete[] zbior;
+		//delete [] zbior;
 	}
 	
 	void Dodaj (int x) {
@@ -42,9 +52,9 @@ class SetSimple {
 		return rozmiar;
 	}
 	
-	SetSimple operator+(SetSimple zbiorB) {
+	SetSimple operator+(SetSimple& zbiorB) {
 		
-		SetSimple nowyZbior(N);
+		SetSimple nowyZbior = *(new SetSimple(N));
 		
 		for (int i = 0; i < N; i++) {
 			if (zbior[i] || zbiorB[i])
@@ -54,9 +64,9 @@ class SetSimple {
 		return nowyZbior;
 	}
 	
-	SetSimple operator-(SetSimple zbiorB) {
+	SetSimple operator-(SetSimple& zbiorB) {
 		
-		SetSimple nowyZbior(N);
+		SetSimple nowyZbior = *(new SetSimple(N));
 		
 		for (int i = 0; i < N; i++) {
 			if (zbior[i] && !zbiorB[i])
@@ -66,7 +76,19 @@ class SetSimple {
 		return nowyZbior;
 	}
 	
-	bool operator==(SetSimple zbiorB) {
+	SetSimple operator*(SetSimple& zbiorB) {
+		
+		SetSimple nowyZbior = *(new SetSimple(N));
+		
+		for (int i = 0; i < N; i++) {
+			if (zbior[i] && zbiorB[i])
+				nowyZbior.Dodaj(i);
+		}
+		
+		return nowyZbior;
+	}
+	
+	bool operator==(SetSimple& zbiorB) {
 		
 		for (int i = 0; i < N; i++) {
 			if (zbior[i] != zbiorB[i])
@@ -91,7 +113,7 @@ class SetSimple {
 				wyjscie << i;
 			}
 		}
-		wyjscie << "}\n";
+		wyjscie << "}";
     	return wyjscie;
 	}
 	

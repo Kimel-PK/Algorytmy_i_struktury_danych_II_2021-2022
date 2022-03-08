@@ -3,7 +3,7 @@ LDFLAGS =
 LDLIBS = 
 
 .PHONY: all clean
-all: Dict.x
+all: ZadanieA.x ZadanieB.x ZadanieD.x
 
 %.x: %.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)
@@ -11,13 +11,13 @@ all: Dict.x
 	$(CXX) $(CFLAGS) -c -o $@ $<
 
 ZadanieA.x: ZadanieA.o
-ZadanieA.o: ZadanieA.cpp
+ZadanieA.o: ZadanieA.cpp SetSimple.hpp
 
 ZadanieB.x: ZadanieB.o
-ZadanieB.o: ZadanieB.cpp
+ZadanieB.o: ZadanieB.cpp SetLinked.hpp LinkedSortedList.hpp
 
 ZadanieD.x: ZadanieD.o
-ZadanieD.o: ZadanieD.cpp
+ZadanieD.o: ZadanieD.cpp DictionarySimple.hpp
 
 clean:
 	$(RM) *.[ox] *.exe *.exe.stackdump

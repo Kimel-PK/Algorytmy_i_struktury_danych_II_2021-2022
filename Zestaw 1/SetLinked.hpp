@@ -1,29 +1,12 @@
 #include <iostream>
-#include <list>
+#include "LinkedSortedList.hpp"
 
 class SetLinked {
 	
 	public:
 	
 	void Dodaj (int x) {
-		
-		std::list<int>::iterator p = zbior.begin();
-		
-		if (zbior.size () == 0) {
-			zbior.push_front (x);
-		} else {
-			for (int liczba : zbior) {
-				if (x <= liczba) {
-					if (x != liczba) {
-						zbior.insert (p, x);
-					}
-					return;
-				}
-				++p;
-			}
-			zbior.insert (p, x);
-		}
-		
+		zbior.add_sorted(x);
 	}
 	
 	void Usun (int x) {
@@ -31,10 +14,8 @@ class SetLinked {
 	}
 	
 	bool CzyZawiera (int x) {
-		for (int liczba : zbior) {
-			if (liczba == x)
-				return true;
-		}
+		if (zbior.find(x) != -1)
+			return true;
 		return false;
 	}
 	
@@ -46,11 +27,11 @@ class SetLinked {
 		
 		SetLinked nowyZbior;
 		
-		for (int liczba : zbior) {
+		for (auto liczba : zbior) {
 			nowyZbior.Dodaj(liczba);
 		}
 		
-		for (int liczba : zbiorB.zbior) {
+		for (auto liczba : zbiorB.zbior) {
 			nowyZbior.Dodaj(liczba);
 		}
 		
@@ -76,8 +57,8 @@ class SetLinked {
 		if (zbior.size() != zbiorB.zbior.size())
 			return false;
 		
-		std::list<int>::iterator pA = zbior.begin();
-		std::list<int>::iterator pB = zbiorB.zbior.begin();
+		SortedList<int, 1000>::Iterator pA = zbior.begin();
+		SortedList<int, 1000>::Iterator pB = zbiorB.zbior.begin();
 		
 		while (pA != zbior.end()) {
 			if (*pA != *pB)
@@ -104,5 +85,5 @@ class SetLinked {
 	
 	private:
 	
-	std::list<int> zbior;
+	SortedList<int, 1000> zbior;
 };
