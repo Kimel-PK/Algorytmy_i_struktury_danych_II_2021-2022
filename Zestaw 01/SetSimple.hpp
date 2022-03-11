@@ -14,20 +14,6 @@ class SetSimple {
 		}
 	}
 	
-	SetSimple (SetSimple& zbiorB) {
-		
-		N = zbiorB.N;
-		zbior = new bool[N];
-		
-		for (int i = 0; i < N; i++) {
-			zbior[i] = zbiorB[i];
-		}
-	}
-	
-	~SetSimple () {
-		//delete [] zbior;
-	}
-	
 	void Dodaj (int x) {
 		if (!zbior[x]) {
 			zbior[x] = true;
@@ -52,9 +38,9 @@ class SetSimple {
 		return rozmiar;
 	}
 	
-	SetSimple operator+(SetSimple& zbiorB) {
+	SetSimple operator+ (SetSimple& zbiorB) {
 		
-		SetSimple nowyZbior = *(new SetSimple(N));
+		SetSimple nowyZbior(N);
 		
 		for (int i = 0; i < N; i++) {
 			if (zbior[i] || zbiorB[i])
@@ -64,9 +50,9 @@ class SetSimple {
 		return nowyZbior;
 	}
 	
-	SetSimple operator-(SetSimple& zbiorB) {
+	SetSimple operator- (SetSimple& zbiorB) {
 		
-		SetSimple nowyZbior = *(new SetSimple(N));
+		SetSimple nowyZbior(N);
 		
 		for (int i = 0; i < N; i++) {
 			if (zbior[i] && !zbiorB[i])
@@ -76,9 +62,9 @@ class SetSimple {
 		return nowyZbior;
 	}
 	
-	SetSimple operator*(SetSimple& zbiorB) {
+	SetSimple operator* (SetSimple& zbiorB) {
 		
-		SetSimple nowyZbior = *(new SetSimple(N));
+		SetSimple nowyZbior(N);
 		
 		for (int i = 0; i < N; i++) {
 			if (zbior[i] && zbiorB[i])
@@ -88,7 +74,7 @@ class SetSimple {
 		return nowyZbior;
 	}
 	
-	bool operator==(SetSimple& zbiorB) {
+	bool operator== (SetSimple& zbiorB) {
 		
 		for (int i = 0; i < N; i++) {
 			if (zbior[i] != zbiorB[i])
@@ -102,7 +88,7 @@ class SetSimple {
 		return zbior[indeks];
 	}
 	
-	friend std::ostream& operator<<(std::ostream& wyjscie, const SetSimple& zbior) {
+	friend std::ostream& operator<< (std::ostream& wyjscie, const SetSimple& zbior) {
 		wyjscie << "{";
 		bool pierwszy = true;
 		for (int i = 0; i < zbior.N; i++) {

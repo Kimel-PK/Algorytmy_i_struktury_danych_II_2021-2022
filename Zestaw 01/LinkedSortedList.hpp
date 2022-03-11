@@ -33,7 +33,7 @@ class SortedList {
 		std::cout << "koniec usuwania listy" << std::endl;
 	}
 	
-	void add_sorted (T x) { // Dołącza element do listy i sortuje go
+	void add_sorted (T x) { // Dołącza element do listy zachowując sortowanie listy
 		
 		Node* temp = new Node();
 		temp->value = x;

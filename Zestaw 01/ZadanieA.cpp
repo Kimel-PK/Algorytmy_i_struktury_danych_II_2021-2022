@@ -4,8 +4,8 @@ using namespace std;
 
 int main () {
 	
-	SetSimple zbiorA = *(new SetSimple(100));
-	SetSimple zbiorB = *(new SetSimple(100));
+	SetSimple zbiorA(100);
+	SetSimple zbiorB(100);
 	
 	cout << endl << "Dodawanie elementów" << endl << endl;
 	
@@ -28,7 +28,7 @@ int main () {
 	
 	cout << endl << "Odejmowanie zbiorów" << endl << endl;
 	
-	SetSimple zbiorC = *(new SetSimple(100));
+	SetSimple zbiorC(100);
 	
 	zbiorC.Dodaj(2);
 	zbiorC.Dodaj(5);

@@ -23,7 +23,7 @@ class SetLinked {
 		return zbior.size();
 	}
 	
-	SetLinked operator+(SetLinked zbiorB) {
+	SetLinked operator+ (SetLinked zbiorB) {
 		
 		SetLinked nowyZbior;
 		
@@ -38,7 +38,7 @@ class SetLinked {
 		return nowyZbior;
 	}
 	
-	SetLinked operator-(SetLinked zbiorB) {
+	SetLinked operator- (SetLinked zbiorB) {
 		SetLinked nowyZbior;
 		
 		for (int liczba : zbior) {
@@ -52,7 +52,23 @@ class SetLinked {
 		return nowyZbior;
 	}
 	
-	bool operator==(SetLinked zbiorB) {
+	SetLinked operator* (SetLinked zbiorB) {
+		SetLinked nowyZbior;
+		
+		for (int liczba : zbior) {
+			nowyZbior.Dodaj (liczba);
+		}
+		
+		for (int liczba : zbiorB.zbior) {
+			if (!CzyZawiera (liczba)) {
+				nowyZbior.Usun (liczba);
+			}
+		}
+		
+		return nowyZbior;
+	}
+	
+	bool operator== (SetLinked zbiorB) {
 		
 		if (zbior.size() != zbiorB.zbior.size())
 			return false;
@@ -70,7 +86,7 @@ class SetLinked {
 		return true;
 	}
 	
-	friend std::ostream& operator<<(std::ostream& wyjscie, SetLinked& zbior) {
+	friend std::ostream& operator<< (std::ostream& wyjscie, SetLinked& zbior) {
 		wyjscie << "{";
 		bool pierwszy = true;
 		for (int liczba : zbior.zbior) {
