@@ -2,7 +2,7 @@
 
 ## Zadanie A
 
-Implementacja zbioru wykorzystująca jednowymiarowe tablice o skończonym rozmiarze z zadania A w zestawie 1 zakłada, że każdemu elementowi zbioru można przypisać liczbę naturalną 1 ... N. Proszę zaimplementować funkcje implementujące takie przyporządkowanie dla zbiorów:
+Implementacja zbioru wykorzystująca jednowymiarowe tablice o skończonym rozmiarze z zadania A w zestawie 1 zakłada, że każdemu elementowi zbioru można przypisać liczbę naturalną `1 ... N`. Proszę zaimplementować funkcje implementujące takie przyporządkowanie dla zbiorów:
 
 - liczb całkowitych `n`, `n + 1`, `n + 2`, ... , `m` gdzie `n < m`
 - liczb całkowitych `n`, `n + 2`, `n + 4`, ... , `m` gdzie `n < m`
