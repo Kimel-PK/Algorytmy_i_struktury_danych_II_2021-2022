@@ -8,7 +8,7 @@ Proszę zaimplementować ADT graph, posiadający wszystkie operacje z zadania A 
 
 Proszę się zastanowić jak wykorzystać reprezentację grafową do rozwiązania problemu znalezienia minimalnej liczby "faz" sygnalizacji świetlnej na skrzyżowaniu (strzałeczki oznaczają ulice jednokierunkowe):
 
-
+![schemat skrzyżowań](https://user-images.githubusercontent.com/57668948/157849939-aead0c05-46c2-4447-97b6-57cad2cd195b.jpg)
 
 Sygnalizacja świetlna w każdej "fazie" powinna zezwalać na ruch przez skrzyżowanie jedynie tym samochodom, których trajektorie nie będą się przecinać. Aby usprawnić działanie skrzyżowania, liczba tych etapów powinna być jak najmniejsza.
 
