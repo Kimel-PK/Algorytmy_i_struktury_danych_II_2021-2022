@@ -4,16 +4,16 @@
 
 Proszę zaimplementować typ danych setSimple reprezentujący matematyczny zbiór oraz operacje które dla dwóch zbiorów `A`, `B` realizują:
 
-- sumę zbiorów
-- część wspólną zbiorów
-- różnicę zbiorów
-- sprawdzanie identyczności zbiorów
+- sumę zbiorów `A ∪ B`
+- część wspólną zbiorów `A ∩ B`
+- różnicę zbiorów `A - B`
+- sprawdzanie identyczności zbiorów `A ≡ B`
 
 oraz dla elementu `x` i zbioru `A` realizują:
 
 - wstawianie `x` do zbioru `A`
 - usuwanie `x` ze zbioru `A`
-- sprawdzanie czy `x` należy do `A`
+- sprawdzanie czy `x ∈ A`
 
 Proszę założyć, że istnieje skończona liczba `N` możliwych elementów. Można sobie na przykład wyobrazić, że wszystkie rozpatrywane przez nas zbiory są podzbiorami pewnego zbioru `Ω` zawierającego `N` elementów. Dzięki takiemu założeniu implementacja każdego z rozpytywanych zbiorów może być oparta na jednowymiarowej tablicy o rozmiarze `N`. Każdy index `i` = 1 ... `N` (lub `i` = 0 ... `N` - 1) tej tablicy odpowiadałby jednemu z elementów `Ω`. Wartość przechowywana w tablicy pod indeksem `i` (lub `i` - 1) wskazuje na to czy dany element należy (np. `true` , `1`) do rozpatrywanego zbioru czy nie (np. `false`, `0`).
 
@@ -35,7 +35,7 @@ Proszę zaimplementować typ danych `dictionarySimple`, będący uproszczoną we
 
 - wstawianie `x` do zbioru `A`
 - usuwanie `x` ze zbioru `A`
-- sprawdzanie czy `x` należy do `A`
+- sprawdzanie czy `x ∈ A`
 
 Tym razem w zbiorze przechowywane będą ciągi znaków o długości 50. W implementacji proszę wykorzystać jednowymiarową tablicę, której elementy są ciągami znaków.
 
