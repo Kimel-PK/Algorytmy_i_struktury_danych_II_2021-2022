@@ -1,3 +1,5 @@
+using namespace std;
+
 template<class T, int capacity>
 class SortedList {
 	
@@ -17,20 +19,25 @@ class SortedList {
 	}
 	
 	~SortedList () {
-		std::cout << "usuwanie listy" << std::endl;
+		cout << "usuwanie listy" << endl;
+		cout << size() << endl;
+		
+		Node* temp = guard;
+		do {
+			cout << guard << endl;
+			temp = temp->next;
+		} while (temp != guard);
+		
 		while (!empty()) {
-			
+			cout << "test" << endl;
 			Node* temp = guard->next;
 			guard->next = temp->next;
 			
 			_size--;
-			
-			std::cout << temp->value << std::endl;
-			
 			delete temp;
 		}
 		delete guard;
-		std::cout << "koniec usuwania listy" << std::endl;
+		cout << "usunięto listę" << endl;
 	}
 	
 	void add_sorted (T x) { // Dołącza element do listy zachowując sortowanie listy
@@ -38,13 +45,15 @@ class SortedList {
 		Node* temp = new Node();
 		temp->value = x;
 		
-        Node* insert = guard->next;
-        for (int i = 0; x < insert->next->value && i < size(); i++) {
+        Node* insert = guard;
+        for (int i = 0; x > insert->next->value && i < size(); i++) {
 			insert = insert->next;
 		}
 		
 		if (temp->value != insert->next->value) {
+			temp->prev = insert;
 			temp->next = insert->next;
+			insert->next->prev = temp;
 			insert->next = temp;
 			_size++;
 		}

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "LinkedSortedList.hpp"
 
+using namespace std;
+
 class SetLinked {
 	
 	public:
@@ -23,7 +25,7 @@ class SetLinked {
 		return zbior.size();
 	}
 	
-	SetLinked operator+ (SetLinked zbiorB) {
+	SetLinked operator+ (SetLinked& zbiorB) {
 		
 		SetLinked nowyZbior;
 		
@@ -38,7 +40,7 @@ class SetLinked {
 		return nowyZbior;
 	}
 	
-	SetLinked operator- (SetLinked zbiorB) {
+	SetLinked operator- (SetLinked& zbiorB) {
 		SetLinked nowyZbior;
 		
 		for (int liczba : zbior) {
@@ -52,7 +54,7 @@ class SetLinked {
 		return nowyZbior;
 	}
 	
-	SetLinked operator* (SetLinked zbiorB) {
+	SetLinked operator* (SetLinked& zbiorB) {
 		SetLinked nowyZbior;
 		
 		for (int liczba : zbior) {
@@ -68,7 +70,7 @@ class SetLinked {
 		return nowyZbior;
 	}
 	
-	bool operator== (SetLinked zbiorB) {
+	bool operator== (SetLinked& zbiorB) {
 		
 		if (zbior.size() != zbiorB.zbior.size())
 			return false;
