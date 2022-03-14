@@ -27,9 +27,9 @@ int main () {
 			losowa = rand() % i;
 		} while (!zbior.CzyZawiera(losowa));
 		
-		auto start = chrono::high_resolution_clock::now();
+		auto start = chrono::system_clock::now();
 		zbior.Usun(losowa);
-		auto koniec = chrono::high_resolution_clock::now();
+		auto koniec = chrono::system_clock::now();
 		
 		chrono::duration<double> czasWykonania = koniec - start;
 		
@@ -37,25 +37,21 @@ int main () {
 	}
 	
 	for (int i = 1; i < 1000; i++) {
-		cout << "początek pętli" << endl;
 		SetLinked zbiorA;
 		SetLinked zbiorB;
 		
 		while (zbiorA.Rozmiar() != i)
 			zbiorA.Dodaj (rand() % 1000);
-			
+		
 		while (zbiorB.Rozmiar() != i)
 			zbiorB.Dodaj (rand() % 1000);
 		
-		cout << "odejmowanie" << endl;
-		auto start = chrono::high_resolution_clock::now();
+		auto start = chrono::system_clock::now();
 		zbiorA = zbiorA - zbiorB;
-		auto koniec = chrono::high_resolution_clock::now();
-		cout << "odjęto" << endl;
+		auto koniec = chrono::system_clock::now();
 		
 		chrono::duration<double> czasWykonania = koniec - start;
 		
-		cout << "wpisywanie do pliku" << endl;
 		plik2 << i << " " << czasWykonania.count() << endl;
 	}
 	

@@ -22,9 +22,9 @@ int main () {
 			zbior.Dodaj(j);
 		}
 		
-		auto start = chrono::high_resolution_clock::now();
+		auto start = chrono::system_clock::now();
 		zbior.Dodaj (i);
-		auto koniec = chrono::high_resolution_clock::now();
+		auto koniec = chrono::system_clock::now();
 		
 		chrono::duration<double> czasWykonania = koniec - start;
 		
@@ -43,9 +43,9 @@ int main () {
 			zbiorB.Dodaj(rand() % i);
 		}
 		
-		auto start = chrono::high_resolution_clock::now();
+		auto start = chrono::system_clock::now();
 		zbiorA = zbiorA + zbiorB;
-		auto koniec = chrono::high_resolution_clock::now();
+		auto koniec = chrono::system_clock::now();
 	
 		chrono::duration<double> czasWykonania = koniec - start;
 		

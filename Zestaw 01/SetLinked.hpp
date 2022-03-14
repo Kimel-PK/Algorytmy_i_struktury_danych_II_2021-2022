@@ -1,8 +1,6 @@
 #include <iostream>
 #include "LinkedSortedList.hpp"
 
-using namespace std;
-
 class SetLinked {
 	
 	public:
@@ -25,8 +23,27 @@ class SetLinked {
 		return zbior.size();
 	}
 	
-	SetLinked operator+ (SetLinked& zbiorB) {
+	void WypiszZbior () {
+		SortedList<int>::Iterator p = zbior.begin();
 		
+		SortedList<int>::Node* guard = p.GetNode()->prev;
+		std::cout << guard->prev << " << " << guard << " (X) " << guard->next << std::endl;
+		for (; p != zbior.end(); ++p) {
+			std::cout << p.GetNode()->prev << " << " << p.GetNode() << " (" << p.GetNode()->value << ") " << p.GetNode()->next << std::endl;
+		}
+	}
+	
+	void operator= (SetLinked zbiorB) {
+		zbior.clear();
+		
+		SortedList<int>::Iterator p = zbiorB.zbior.begin();
+		for (; p != zbiorB.zbior.end(); ++p) {
+			Dodaj (*p);
+		}
+		return;
+	}
+	
+	SetLinked operator+ (SetLinked& zbiorB) {
 		SetLinked nowyZbior;
 		
 		for (auto liczba : zbior) {
@@ -75,8 +92,8 @@ class SetLinked {
 		if (zbior.size() != zbiorB.zbior.size())
 			return false;
 		
-		SortedList<int, 1000>::Iterator pA = zbior.begin();
-		SortedList<int, 1000>::Iterator pB = zbiorB.zbior.begin();
+		SortedList<int>::Iterator pA = zbior.begin();
+		SortedList<int>::Iterator pB = zbiorB.zbior.begin();
 		
 		while (pA != zbior.end()) {
 			if (*pA != *pB)
@@ -103,5 +120,5 @@ class SetLinked {
 	
 	private:
 	
-	SortedList<int, 1000> zbior;
+	SortedList<int> zbior;
 };

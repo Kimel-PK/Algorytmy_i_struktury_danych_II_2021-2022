@@ -9,8 +9,8 @@ int main () {
 	
 	cout << endl << "Dodawanie elementów" << endl << endl;
 	
-	zbiorA.Dodaj(1);
 	zbiorA.Dodaj(5);
+	zbiorA.Dodaj(1);
 	zbiorA.Dodaj(5);
 	
 	cout << "A = " << zbiorA << endl;
@@ -30,9 +30,10 @@ int main () {
 	
 	SetLinked zbiorC;
 	
-	zbiorC.Dodaj(2);
 	zbiorC.Dodaj(5);
+	zbiorC.Dodaj(2);
 	
+	cout << "A = " << zbiorA << endl;
 	cout << "C = " << zbiorC << endl;
 	
 	zbiorC = zbiorA - zbiorC;

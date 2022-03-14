@@ -1,6 +1,4 @@
-using namespace std;
-
-template<class T, int capacity>
+template<class T>
 class SortedList {
 	
 	public:
@@ -19,17 +17,8 @@ class SortedList {
 	}
 	
 	~SortedList () {
-		cout << "usuwanie listy" << endl;
-		cout << size() << endl;
-		
-		Node* temp = guard;
-		do {
-			cout << guard << endl;
-			temp = temp->next;
-		} while (temp != guard);
 		
 		while (!empty()) {
-			cout << "test" << endl;
 			Node* temp = guard->next;
 			guard->next = temp->next;
 			
@@ -37,7 +26,6 @@ class SortedList {
 			delete temp;
 		}
 		delete guard;
-		cout << "usunięto listę" << endl;
 	}
 	
 	void add_sorted (T x) { // Dołącza element do listy zachowując sortowanie listy
@@ -85,8 +73,10 @@ class SortedList {
 	}
 	
 	void remove(T x) { // Usuwa x z listy
-		
+	
 		int i = find (x);
+		if (i == -1)
+			return;
 		
 		Node* temp = guard->next;
 		
@@ -99,6 +89,18 @@ class SortedList {
 		
 		_size--;
 		delete temp;
+	}
+	
+	void clear () { // Czyści listę
+		while (!empty()) {
+			Node* temp = guard->next;
+			guard->next = temp->next;
+			
+			_size--;
+			delete temp;
+		}
+		guard->next = guard;
+		guard->prev = guard;
 	}
 	
 	struct Iterator {
@@ -116,6 +118,10 @@ class SortedList {
         Iterator operator++() {
 			m_ptr = m_ptr->next;
 			return *this;
+		}
+		
+		Node* GetNode () {
+			return m_ptr;
 		}
 		
 		friend bool operator== (const Iterator& a, const Iterator& b) { return a.m_ptr == b.m_ptr; };
