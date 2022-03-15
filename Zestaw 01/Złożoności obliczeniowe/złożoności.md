@@ -16,6 +16,4 @@ Operacja porównania ma złożoność O(N)
 
 ## Zadanie D - DictionarySimple
 
-Operacja `Dodaj` ma złożoność O(1)
-
-Operacja `Usun` oraz `CzyZawiera` ma złożoność O(N)
+Wszystkie operacje mają złożoność O(N)

@@ -1,7 +1,6 @@
 #include <iostream>
-#include <list>
 
-#define N 100
+#define N 1000
 
 class DictionarySimple {
 	
@@ -64,5 +63,4 @@ class DictionarySimple {
 	
 	std::string zbior[N];
 	int rozmiar;
-	
 };

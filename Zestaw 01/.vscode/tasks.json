@@ -50,6 +50,16 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"label": "Zadanie D złożoność",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "Złożoności obliczeniowe/ZadanieD_zlozonosc", "Złożoności obliczeniowe/ZadanieD_zlozonosc.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }
