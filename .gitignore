@@ -2,3 +2,4 @@
 *.exe.stackdump
 *.o
 *.x
+*.log
