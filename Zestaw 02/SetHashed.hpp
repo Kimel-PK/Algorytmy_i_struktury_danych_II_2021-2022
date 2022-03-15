@@ -1,47 +1,34 @@
+#include "LinkedList.hpp"
 #include <iostream>
 
-template<int capacity>
+template<int BINS_NUM>
 class SetHashed {
 	
 	public:
-	
-	SetHashed () {
-		for (int i = 0; i < capacity; i++) {
-			slownik[i] = -1;
-		}
-	}
 	
 	void Dodaj (int x) {
 		int hash = Hash (x);
 		
 		std::cout << hash << std::endl;
 		
-		for (int i = 0; i < capacity; i++) {
-			if (slownik[hash + i] == -1) {
-				slownik[hash + i] = x;
-				break;
-			}
+		for (int i = 0; i < slownik[hash].size(); i++) {
+			slownik[hash].push_back (x);
 		}
 	}
 	
 	void Usun (int x) {
 		int hash = Hash (x);
 		
-		for (int i = 0; i < capacity; i++) {
-			if (slownik[hash + i] == x) {
-				slownik[hash + i] = -1;
-				break;
-			}
-		}
+		slownik[hash].remove (x);
 	}
 	
 	bool CzyZawiera (int x) {
 		int hash = Hash (x);
 		
-		for (int i = 0; i < capacity; i++) {
-			if (slownik[hash + i] == x) {
+		List<int>::Iterator p = slownik[hash].begin();
+		for (; p != slownik[hash].end(); p++) {
+			if (*p == x)
 				return true;
-			}
 		}
 		return false;
 	}
@@ -54,12 +41,18 @@ class SetHashed {
 		
 		SetHashed nowyZbior;
 		
-		for (auto liczba : slownik) {
-			nowyZbior.Dodaj(liczba);
+		for (int i = 0; i < BINS_NUM; i++) {
+			List<int>::Iterator p = slownik[i].begin();
+			for (; p != slownik[i].end(); p++) {
+				nowyZbior.Dodaj (*p);
+			}
 		}
 		
-		for (auto liczba : zbiorB.slownik) {
-			nowyZbior.Dodaj(liczba);
+		for (int i = 0; i < BINS_NUM; i++) {
+			List<int>::Iterator p = zbiorB.slownik[i].begin();
+			for (; p != zbiorB.slownik[i].end(); p++) {
+				nowyZbior.Dodaj (*p);
+			}
 		}
 		
 		return nowyZbior;
@@ -68,12 +61,18 @@ class SetHashed {
 	SetHashed operator- (SetHashed zbiorB) {
 		SetHashed nowyZbior;
 		
-		for (int liczba : slownik) {
-			nowyZbior.Dodaj (liczba);
+		for (int i = 0; i < BINS_NUM; i++) {
+			List<int>::Iterator p = slownik[i].begin();
+			for (; p != slownik[i].end(); p++) {
+				nowyZbior.Dodaj (*p);
+			}
 		}
 		
-		for (int liczba : zbiorB.slownik) {
-			nowyZbior.Usun (liczba);
+		for (int i = 0; i < BINS_NUM; i++) {
+			List<int>::Iterator p = zbiorB.slownik[i].begin();
+			for (; p != zbiorB.slownik[i].end(); p++) {
+				nowyZbior.Usun (*p);
+			}
 		}
 		
 		return nowyZbior;
@@ -82,13 +81,18 @@ class SetHashed {
 	SetHashed operator* (SetHashed zbiorB) {
 		SetHashed nowyZbior;
 		
-		for (int liczba : slownik) {
-			nowyZbior.Dodaj (liczba);
+		for (int i = 0; i < BINS_NUM; i++) {
+			List<int>::Iterator p = slownik[i].begin();
+			for (; p != slownik[i].end(); p++) {
+				nowyZbior.Dodaj (*p);
+			}
 		}
 		
-		for (int liczba : zbiorB.slownik) {
-			if (!CzyZawiera (liczba)) {
-				nowyZbior.Usun (liczba);
+		for (int i = 0; i < BINS_NUM; i++) {
+			List<int>::Iterator p = zbiorB.slownik[i].begin();
+			for (; p != zbiorB.slownik[i].end(); p++) {
+				if (!CzyZawiera (*p))
+					nowyZbior.Usun (*p);
 			}
 		}
 		
@@ -100,7 +104,7 @@ class SetHashed {
 		if (Rozmiar() != zbiorB.Rozmiar())
 			return false;
 		
-		for (int i = 0; i < capacity; i++) {
+		for (int i = 0; i < BINS_NUM; i++) {
 			if (slownik[i] != zbiorB.slownik[i])
 				return false;
 		}
@@ -131,10 +135,9 @@ class SetHashed {
             suma = suma + x % 10;
             x = x / 10;
         }
-        return suma % capacity;
+        return suma % BINS_NUM;
 	}
 	
 	int rozmiar;
-	int slownik[capacity];
+	List<int> slownik[BINS_NUM];
 };
-

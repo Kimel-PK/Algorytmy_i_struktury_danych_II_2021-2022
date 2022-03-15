@@ -1,11 +1,11 @@
 #include <iostream>
 
 template <int MIN, int MAX>
-class SetSimpleInt2 {
+class SetSimpleIntEven {
 	
 	public:
 	
-	SetSimpleInt2 () {
+	SetSimpleIntEven () {
 		for (int i = 0; i < MAX - MIN + 1; i++) {
 			zbior[i] = false;
 		}
@@ -35,9 +35,9 @@ class SetSimpleInt2 {
 		return rozmiar;
 	}
 	
-	SetSimpleInt2 operator+ (SetSimpleInt2& zbiorB) {
+	SetSimpleIntEven operator+ (SetSimpleIntEven& zbiorB) {
 		
-		SetSimpleInt2<MIN, MAX> nowyZbior;
+		SetSimpleIntEven<MIN, MAX> nowyZbior;
 		
 		for (int i = 0; i < MAX - MIN + 1; i++) {
 			if (zbior[i] || zbiorB.zbior[i])
@@ -47,9 +47,9 @@ class SetSimpleInt2 {
 		return nowyZbior;
 	}
 	
-	SetSimpleInt2 operator- (SetSimpleInt2& zbiorB) {
+	SetSimpleIntEven operator- (SetSimpleIntEven& zbiorB) {
 		
-		SetSimpleInt2<MIN, MAX> nowyZbior;
+		SetSimpleIntEven<MIN, MAX> nowyZbior;
 		
 		for (int i = 0; i < MAX - MIN + 1; i++) {
 			if (zbior[i] && !zbiorB.zbior[i])
@@ -59,9 +59,9 @@ class SetSimpleInt2 {
 		return nowyZbior;
 	}
 	
-	SetSimpleInt2 operator* (SetSimpleInt2& zbiorB) {
+	SetSimpleIntEven operator* (SetSimpleIntEven& zbiorB) {
 		
-		SetSimpleInt2<MIN, MAX> nowyZbior;
+		SetSimpleIntEven<MIN, MAX> nowyZbior;
 		
 		for (int i = 0; i < MAX - MIN + 1; i++) {
 			if (zbior[i] && zbiorB.zbior[i])
@@ -71,7 +71,7 @@ class SetSimpleInt2 {
 		return nowyZbior;
 	}
 	
-	bool operator== (SetSimpleInt2& zbiorB) {
+	bool operator== (SetSimpleIntEven& zbiorB) {
 		
 		for (int i = MIN; i < MAX + 1; i++) {
 			if (zbior[i] != zbiorB[i])
@@ -85,7 +85,7 @@ class SetSimpleInt2 {
 		return zbior[indeks + MIN];
 	}
 	
-	friend std::ostream& operator<< (std::ostream& wyjscie, const SetSimpleInt2& zbior) {
+	friend std::ostream& operator<< (std::ostream& wyjscie, const SetSimpleIntEven& zbior) {
 		wyjscie << "{";
 		bool pierwszy = true;
 		for (int i = 0; i < MAX - MIN + 1; i++) {
