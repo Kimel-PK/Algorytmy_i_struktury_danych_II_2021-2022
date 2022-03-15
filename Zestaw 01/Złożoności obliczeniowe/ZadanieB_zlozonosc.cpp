@@ -15,24 +15,26 @@ int main () {
 	plik2.open ("zlozonoscB2.dat");
 	
 	for (int i = 10; i < 1000; i++) {
-		
-		SetLinked zbior;
-		
-		for (int j = 0; j < i - 1; j++) {
-			zbior.Dodaj(j);
+		chrono::duration<double> czasWykonania (0.0);
+		for (int k = 10; k < 100; k++) {
+			SetLinked zbior;
+			
+			for (int j = 0; j < i - 1; j++) {
+				zbior.Dodaj(j);
+			}
+			
+			int losowa;
+			do {
+				losowa = rand() % i;
+			} while (!zbior.CzyZawiera(losowa));
+			
+			auto start = chrono::system_clock::now();
+			zbior.Usun(losowa);
+			auto koniec = chrono::system_clock::now();
+			
+			czasWykonania += koniec - start;
+			
 		}
-		
-		int losowa;
-		do {
-			losowa = rand() % i;
-		} while (!zbior.CzyZawiera(losowa));
-		
-		auto start = chrono::system_clock::now();
-		zbior.Usun(losowa);
-		auto koniec = chrono::system_clock::now();
-		
-		chrono::duration<double> czasWykonania = koniec - start;
-		
 		plik1 << i << " " << czasWykonania.count() << endl;
 	}
 	
