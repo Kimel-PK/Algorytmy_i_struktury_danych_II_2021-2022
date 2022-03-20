@@ -97,12 +97,11 @@ class SetSimpleInt {
 			}
 		}
 		wyjscie << "}";
-    	return wyjscie;
+		return wyjscie;
 	}
 	
 	private:
 	
 	bool zbior[MAX - MIN + 1];
-	size_t rozmiar;
-	
+	size_t rozmiar = 0;
 };

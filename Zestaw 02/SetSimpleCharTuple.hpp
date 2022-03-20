@@ -1,14 +1,12 @@
 #include <iostream>
 
-#define N 25
-
-class SetSimpleChar {
+class SetSimpleCharTuple {
 	
 	public:
 	
-	SetSimpleChar () {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
+	SetSimpleCharTuple () {
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
+			for (int j = 0; j < 'z' - 'a' + 1; j++) {
 				zbior[i][j] = false;
 			}
 		}
@@ -38,77 +36,79 @@ class SetSimpleChar {
 		return rozmiar;
 	}
 	
-	SetSimpleChar operator+ (SetSimpleChar& zbiorB) {
+	SetSimpleCharTuple operator+ (SetSimpleCharTuple& zbiorB) {
 		
-		SetSimpleChar nowyZbior;
+		SetSimpleCharTuple nowyZbior;
 		
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if (zbior[i][j] || zbiorB[i][j])
-					nowyZbior.Dodaj(i, j);
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
+			for (int j = 0; j < 'z' - 'a' + 1; j++) {
+				if (zbior[i][j] || zbiorB.zbior[i][j])
+					nowyZbior.Dodaj(i + 'a', j + 'a');
 			}
 		}
 		
 		return nowyZbior;
 	}
 	
-	SetSimpleChar operator- (SetSimpleChar& zbiorB) {
+	SetSimpleCharTuple operator- (SetSimpleCharTuple& zbiorB) {
 		
-		SetSimpleChar nowyZbior;
+		SetSimpleCharTuple nowyZbior;
 		
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if (zbior[i][j] && !zbiorB[i][j])
-					nowyZbior.Dodaj(i, j);
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
+			for (int j = 0; j < 'z' - 'a' + 1; j++) {
+				if (zbior[i][j] && !zbiorB.zbior[i][j])
+					nowyZbior.Dodaj(i + 'a', j + 'a');
+			}
 		}
 		
 		return nowyZbior;
 	}
 	
-	SetSimpleChar operator* (SetSimpleChar& zbiorB) {
+	SetSimpleCharTuple operator* (SetSimpleCharTuple& zbiorB) {
 		
-		SetSimpleChar nowyZbior;
+		SetSimpleCharTuple nowyZbior;
 		
-		for (int i = 0; i < N; i++) {
-			if (zbior[i] && zbiorB[i])
-				nowyZbior.Dodaj(i);
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
+			for (int j = 0; j < 'z' - 'a' + 1; j++) {
+				if (zbior[i][j] && zbiorB.zbior[i][j])
+					nowyZbior.Dodaj(i + 'a', j + 'a');
+			}
 		}
 		
 		return nowyZbior;
 	}
 	
-	bool operator== (SetSimpleChar& zbiorB) {
+	bool operator== (SetSimpleCharTuple& zbiorB) {
 		
-		for (int i = 0; i < N; i++) {
-			if (zbior[i] != zbiorB[i])
-				return false;
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
+			for (int j = 0; j < 'z' - 'a' + 1; j++) {
+				if (zbior[i][j] != zbiorB.zbior[i][j])
+					return false;
+			}
 		}
 		
 		return true;
 	}
 	
-	bool operator[] (const int indeks) {
-		return zbior[indeks];
-	}
-	
-	friend std::ostream& operator<< (std::ostream& wyjscie, const SetSimpleChar& zbior) {
+	friend std::ostream& operator<< (std::ostream& wyjscie, const SetSimpleCharTuple& zbior) {
 		wyjscie << "{";
 		bool pierwszy = true;
-		for (char i = 'a'; i < 'a' + N; i++) {
-			if (zbior.zbior[i - 'a']) {
-				if (!pierwszy)
-					wyjscie << ", ";
-				pierwszy = false;
-				wyjscie << i;
+		for (char i = 'a'; i <= 'z'; i++) {
+			for (char j = 'a'; j <= 'z'; j++) {
+				if (zbior.zbior[i - 'a'][j - 'a']) {
+					if (!pierwszy)
+						wyjscie << ", ";
+					pierwszy = false;
+					wyjscie << i << j;
+				}
 			}
 		}
 		wyjscie << "}";
-    	return wyjscie;
+		return wyjscie;
 	}
 	
 	private:
 	
-	bool zbior[N][N];
-	size_t rozmiar;
-	
+	bool zbior['z' - 'a' + 1]['z' - 'a' + 1];
+	size_t rozmiar = 0;
 };

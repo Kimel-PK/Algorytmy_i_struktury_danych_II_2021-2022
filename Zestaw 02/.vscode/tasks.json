@@ -12,6 +12,16 @@
 			}
 		},
 		{
+			"label": "Zadanie A złożoność",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "Złożoności obliczeniowe/ZadanieA_zlozonosc", "Złożoności obliczeniowe/ZadanieA_zlozonosc.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
 			"label": "Zadanie B",
 			"type": "shell",
 			"command": "g++",
@@ -20,6 +30,16 @@
 				"kind": "build",
 				"isDefault": true
 			}
-		}
+		},
+		{
+			"label": "Zadanie B złożoność",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "Złożoności obliczeniowe/ZadanieB_zlozonosc", "Złożoności obliczeniowe/ZadanieB_zlozonosc.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
 	]
 }

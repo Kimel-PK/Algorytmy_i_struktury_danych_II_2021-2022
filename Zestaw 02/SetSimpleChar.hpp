@@ -1,13 +1,11 @@
 #include <iostream>
 
-#define N 25
-
 class SetSimpleChar {
 	
 	public:
 	
 	SetSimpleChar () {
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
 			zbior[i] = false;
 		}
 	}
@@ -40,9 +38,9 @@ class SetSimpleChar {
 		
 		SetSimpleChar nowyZbior;
 		
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
 			if (zbior[i] || zbiorB[i])
-				nowyZbior.Dodaj(i);
+				nowyZbior.Dodaj(i + 'a');
 		}
 		
 		return nowyZbior;
@@ -52,9 +50,9 @@ class SetSimpleChar {
 		
 		SetSimpleChar nowyZbior;
 		
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
 			if (zbior[i] && !zbiorB[i])
-				nowyZbior.Dodaj(i);
+				nowyZbior.Dodaj(i + 'a');
 		}
 		
 		return nowyZbior;
@@ -64,9 +62,9 @@ class SetSimpleChar {
 		
 		SetSimpleChar nowyZbior;
 		
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
 			if (zbior[i] && zbiorB[i])
-				nowyZbior.Dodaj(i);
+				nowyZbior.Dodaj(i + 'a');
 		}
 		
 		return nowyZbior;
@@ -74,7 +72,7 @@ class SetSimpleChar {
 	
 	bool operator== (SetSimpleChar& zbiorB) {
 		
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < 'z' - 'a' + 1; i++) {
 			if (zbior[i] != zbiorB[i])
 				return false;
 		}
@@ -89,7 +87,7 @@ class SetSimpleChar {
 	friend std::ostream& operator<< (std::ostream& wyjscie, const SetSimpleChar& zbior) {
 		wyjscie << "{";
 		bool pierwszy = true;
-		for (char i = 'a'; i < 'a' + N; i++) {
+		for (char i = 'a'; i <= 'z'; i++) {
 			if (zbior.zbior[i - 'a']) {
 				if (!pierwszy)
 					wyjscie << ", ";
@@ -98,12 +96,12 @@ class SetSimpleChar {
 			}
 		}
 		wyjscie << "}";
-    	return wyjscie;
+		return wyjscie;
 	}
 	
 	private:
 	
-	bool zbior[N];
-	size_t rozmiar;
+	bool zbior['z' - 'a' + 1];
+	size_t rozmiar = 0;
 	
 };

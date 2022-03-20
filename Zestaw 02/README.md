@@ -30,7 +30,7 @@ Tym razem proszę wykrzystać haszowanie otwarte. Państwa implementację prosz�
 
 ## Zadanie C
 
-Korzystając z wyników zadań `A` oraz `B` z zestawu 1 oraz zadania `B` z obecnego zestawu proszę się zastanowić która implementacja jest lepsza i w jakiej sytuacji. Swoją odpowiedź (popartą odpowiednimi wykresami) proszę przesłać za pośrednictwem e-mail.
+Korzystając z wyników zadań `A` oraz `B` z zestawu 1 oraz zadania `B` z obecnego zestawu proszę się zastanowić która implementacja jest lepsza i w jakiej sytuacji.
 
 Aby ułatwić Państwu zadanie, proszę założyć, że elementami przechowywanymi we wszystkich zbiorach są słowa składające się z 4 liter (bez polskich znaków). Można wykorzystać zadanie `A`.
 

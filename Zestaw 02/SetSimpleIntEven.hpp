@@ -12,6 +12,9 @@ class SetSimpleIntEven {
 	}
 	
 	void Dodaj (int x) {
+		if (x % 2 == 1)
+			throw std::out_of_range ("Próba dodania liczby nieparzystej do zbioru liczb parzystych");
+		
 		if (!zbior[x - MIN]) {
 			zbior[x - MIN] = true;
 			rozmiar++;
@@ -19,6 +22,9 @@ class SetSimpleIntEven {
 	}
 	
 	void Usun (int x) {
+		if (x % 2 == 1)
+			throw std::out_of_range ("Próba usunięcia liczby nieparzystej ze zbioru liczb parzystych");
+		
 		if (zbior[x - MIN]) {
 			zbior[x - MIN] = false;
 			rozmiar--;
@@ -26,6 +32,9 @@ class SetSimpleIntEven {
 	}
 	
 	bool CzyZawiera (int x) {
+		if (x % 2 == 1)
+			throw std::out_of_range ("Próba odczytania liczby nieparzystej ze zbioru liczb parzystych");
+		
 		if (zbior[x - MIN])
 			return true;
 		return false;
@@ -97,12 +106,11 @@ class SetSimpleIntEven {
 			}
 		}
 		wyjscie << "}";
-    	return wyjscie;
+		return wyjscie;
 	}
 	
 	private:
 	
 	bool zbior[MAX - MIN + 1];
-	size_t rozmiar;
-	
+	size_t rozmiar = 0;
 };
