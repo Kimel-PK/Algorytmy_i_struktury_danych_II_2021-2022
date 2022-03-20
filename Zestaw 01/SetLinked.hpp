@@ -115,7 +115,7 @@ class SetLinked {
 			wyjscie << liczba;
 		}
 		wyjscie << "}";
-    	return wyjscie;
+		return wyjscie;
 	}
 	
 	private:

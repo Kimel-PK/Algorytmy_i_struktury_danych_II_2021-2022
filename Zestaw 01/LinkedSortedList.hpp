@@ -33,8 +33,8 @@ class SortedList {
 		Node* temp = new Node();
 		temp->value = x;
 		
-        Node* insert = guard;
-        for (int i = 0; x > insert->next->value && i < size(); i++) {
+		Node* insert = guard;
+		for (int i = 0; x > insert->next->value && i < size(); i++) {
 			insert = insert->next;
 		}
 		
@@ -105,7 +105,7 @@ class SortedList {
 	
 	struct Iterator {
 		
-        Iterator(Node* ptr) : m_ptr(ptr) {}
+		Iterator(Node* ptr) : m_ptr(ptr) {}
 		
 		T& operator*() const {
 			return m_ptr->value;
@@ -115,7 +115,7 @@ class SortedList {
 			return m_ptr->value;
 		}
 		
-        Iterator operator++() {
+		Iterator operator++() {
 			m_ptr = m_ptr->next;
 			return *this;
 		}
@@ -125,17 +125,17 @@ class SortedList {
 		}
 		
 		friend bool operator== (const Iterator& a, const Iterator& b) { return a.m_ptr == b.m_ptr; };
-        friend bool operator!= (const Iterator& a, const Iterator& b) { return a.m_ptr != b.m_ptr; };
+		friend bool operator!= (const Iterator& a, const Iterator& b) { return a.m_ptr != b.m_ptr; };
 		
-    private:
-        Node* m_ptr;
-    };
+	private:
+		Node* m_ptr;
+	};
 
-    Iterator begin() {
+	Iterator begin() {
 		return Iterator(guard->next);
 	}
 	
-    Iterator end() {
+	Iterator end() {
 		return Iterator(guard);
 	}
 	

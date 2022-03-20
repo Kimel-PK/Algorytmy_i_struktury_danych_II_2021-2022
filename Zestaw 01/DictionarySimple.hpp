@@ -56,7 +56,7 @@ class DictionarySimple {
 			wyjscie << zbior[i];
 		}
 		wyjscie << "}";
-    	return wyjscie;
+		return wyjscie;
 	}
 	
 	private:

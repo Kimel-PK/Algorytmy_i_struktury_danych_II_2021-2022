@@ -100,7 +100,7 @@ class SetSimple {
 			}
 		}
 		wyjscie << "}";
-    	return wyjscie;
+		return wyjscie;
 	}
 	
 	private:
