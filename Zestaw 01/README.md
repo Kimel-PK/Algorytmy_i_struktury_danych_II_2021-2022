@@ -31,9 +31,9 @@ Korzystając z wyników zadań A oraz B proszę się zastanowić która implemen
 
 ### Odpowiedź
 
-Przechowywanie danych w tablicy (SetSimple), świetnie sprawdza się w stosunkowo małych lub gęstych zbiorach. Złożoność obliczeniowa jest bardzo mała, kosztem zajmowanej pamięci. Wielkość zbioru musi być z góry znana.
+Przechowywanie danych w tablicy (`SetSimple`), świetnie sprawdza się w stosunkowo małych lub gęstych zbiorach. Złożoność obliczeniowa jest bardzo mała, kosztem zajmowanej pamięci. Wielkość zbioru musi być z góry znana.
 
-Lista wiązana (SetLinked) sprawdza się najlepiej, kiedy chcemy oszczędzać przestrzeń w RAMie. Struktura bez względu na postać zbioru jest gęsto upakowana. Niestety kosztem niskiego zużycia pamięci jest większa złożoność obliczeniowa. Wielkość zbioru nie musi być z góry określona.
+Lista wiązana (`SetLinked`) sprawdza się najlepiej, kiedy chcemy oszczędzać przestrzeń w RAMie. Struktura bez względu na postać zbioru jest gęsto upakowana. Niestety kosztem niskiego zużycia pamięci jest większa złożoność obliczeniowa. Wielkość zbioru nie musi być z góry określona.
 
 ## Zadanie D
 
