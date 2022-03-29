@@ -34,6 +34,14 @@ Korzystając z wyników zadań `A` oraz `B` z zestawu 1 oraz zadania `B` z obecn
 
 Aby ułatwić Państwu zadanie, proszę założyć, że elementami przechowywanymi we wszystkich zbiorach są słowa składające się z 4 liter (bez polskich znaków). Można wykorzystać zadanie `A`.
 
+### Odpowiedź
+
+`SetSimple` - zbiór oparty na tablicy lub tablicy wielowyimarowej, sprawdza się w sytuacjach gdy nasze dane są "gęste" i stosunkowo małych rozmiarów. Tablica zapewnia nam złożoność O(1) w większosci operacji kosztem przestrzeni zajmowanej w pamięci lub na dysku.
+
+`SetLinked` - zbiór oparty na liście wiązanej, sprawdza się w sytuacjach gdy dane są "rzadkie" i nie potrzebnie przechowywalibyśmy w pamięci dużo pustych pól. Wielkość zbioru w pamięci zależy tylko od jego zapełnienia, kosztem bardziej złożonych operacji dodawania, odejmowania czy wyszukiwania.
+
+`SetHashed` - zbiór oparty na listach wiązanych z wykorzystaniem hashowania, posiada zalety `SetLinked` jednocześnie usprawniając operacje wyszukiwania. Dobrze dobrana ilość "binów" szybko zawęża obszary poszukiwań zapewniając lepszą złożoność obliczeniową wyszukiwania niż zwykły zbiór oparty na listach wiązanych.
+
 ## UWAGI
 
 - Dla każdej implementacji typu danych oraz dla każdej zaimplementowanej operacji proszę dodatkowo:
