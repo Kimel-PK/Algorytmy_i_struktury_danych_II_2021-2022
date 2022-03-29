@@ -61,5 +61,4 @@ int main () {
 	cout << "Różnica zbiorów" << endl << endl;
 	zbiorC = zbiorA - zbiorB;
 	cout << "A - B = " << zbiorC << endl << endl;
-	
 }
