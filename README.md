@@ -13,7 +13,7 @@ Stan wykonania zadań
 
 - :white_check_mark: Zadanie A
 - :white_check_mark: Zadanie B
-- :black_square_button: Zadanie C
+- :white_check_mark: Zadanie C
 
 ## [Zestaw 3](Zestaw%2003)
 
