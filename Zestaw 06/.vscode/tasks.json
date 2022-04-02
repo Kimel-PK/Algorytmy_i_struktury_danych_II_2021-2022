@@ -20,6 +20,16 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"label": "Zadanie C",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "ZadanieC", "ZadanieC.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }
