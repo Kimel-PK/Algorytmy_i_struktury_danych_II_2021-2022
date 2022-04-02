@@ -5,7 +5,7 @@
 Proszę zaimplementować ADT graph, który dla grafu `G` oraz wierzchołków `x`, `y` ma implementacje następujących operacji:
 
 - `adjacent (G, x, y)` - sprawdzanie, czy istnieje krawędź pomiędzy `x` oraz `y`
-- `neighbours (G, x)` - zwracja sąsiadów `x`
+- `neighbours (G, x)` - zwraca sąsiadów `x`
 - `addVertex (G, x)` - dodaje `x` do `G`
 - `removeVertex (G, x)` - usuwa `x` z `G`
 - `addEdge (G, x, y)` - dodaje krawędź pomiędzy `x` i `y`
