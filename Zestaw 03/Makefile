@@ -3,7 +3,7 @@ LDFLAGS =
 LDLIBS = 
 
 .PHONY: all clean
-all: ZadanieA.x
+all: ZadanieA.x ZadanieB.x
 
 %.x: %.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)
@@ -12,6 +12,9 @@ all: ZadanieA.x
 
 ZadanieA.x: ZadanieA.o
 ZadanieA.o: ZadanieA.cpp PriorityQueue.hpp
+
+ZadanieB.x: ZadanieB.o
+ZadanieB.o: ZadanieB.cpp PriorityQueueBinary.hpp
 
 clean:
 	$(RM) *.[ox] *.exe *.exe.stackdump
