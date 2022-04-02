@@ -2,18 +2,18 @@
 
 ## Zadania A
 
-Proszę zapoznać się z pakietem Graphviz. Następnie korzystając z programu dot proszę stworzyć plik `.jpg` z grafem:
+Proszę zapoznać się z pakietem [Graphviz](https://graphviz.gitlab.io/). Następnie korzystając z programu `dot` proszę stworzyć plik `.jpg` z grafem:
 
 - zawierającym trzy wierzchołki
 - zawierającym połączenia, w obydwu kierunkach, pomiędzy wszystkimi wierzchołkami
 
-Przykładowy plik z prostrzym grafem oraz rezultat. Aby stworzyć obrazek wystarczy w linii komend uruchomić:
+Przykładowy [plik z prostym grafem](smallGraph) oraz [rezultat](smallGraph.jpg). Aby stworzyć obrazek wystarczy w linii komend uruchomić:
 
 ```bash
 dot -Tjpg smallGraph -o smallGraph.jpg
 ```
 
-Tutaj można znaleźć przewodnik po programie `dot`.
+[Tutaj](https://www.graphviz.org/pdf/dotguide.pdf) można znaleźć przewodnik po programie `dot`.
 
 ## Zadania B
 

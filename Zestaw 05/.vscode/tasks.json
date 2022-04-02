@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Zadanie B",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "ZadanieB", "ZadanieB.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
