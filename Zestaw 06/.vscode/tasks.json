@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Zadanie A",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "ZadanieA", "ZadanieA.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Zadanie A złożoność",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "Złożoności obliczeniowe/ZadanieA_zlozonosc", "Złożoności obliczeniowe/ZadanieA_zlozonosc.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
