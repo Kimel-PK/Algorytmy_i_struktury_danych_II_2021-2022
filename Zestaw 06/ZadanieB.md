@@ -8,7 +8,7 @@ Wyszukanie najmniejszej ilości "faz" sygnalizacji świetlnej. Samochody, który
 
 Problem można zobrazować następującym grafem:
 
-
+![graph](https://user-images.githubusercontent.com/57668948/161397237-a6c51793-355e-41ea-981b-4c83699667a7.png)
 
 Schemat wygląda trochę jak rondo. Węzły `1`, `2`, `3`, `4` mogą należeć tylko do jednej trasy jednocześnie, ale trasa może się "rozgałęziać".
 
