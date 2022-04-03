@@ -13,5 +13,11 @@ all: ZadanieA.x
 ZadanieA.x: ZadanieA.o
 ZadanieA.o: ZadanieA.cpp ADTgraph.hpp
 
+ZadanieC_bruteforce.x: ZadanieC_bruteforce.o
+ZadanieC_bruteforce.o: ZadanieC_bruteforce.cpp
+
+ZadanieC_Warnsdorff.x: ZadanieC_Warnsdorff.o
+ZadanieC_Warnsdorff.o: ZadanieC_Warnsdorff.cpp
+
 clean:
 	$(RM) *.[ox] *.exe *.exe.stackdump

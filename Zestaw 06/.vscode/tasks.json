@@ -22,10 +22,20 @@
 			}
 		},
 		{
-			"label": "Zadanie C",
+			"label": "Zadanie C - rozwiązanie siłowe",
 			"type": "shell",
 			"command": "g++",
-			"args": ["-std=c++17", "-Wall", "-o", "ZadanieC", "ZadanieC.cpp"],
+			"args": ["-std=c++17", "-Wall", "-o", "ZadanieC_bruteforce", "ZadanieC_bruteforce.cpp"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Zadanie C - algorytm Warnsdorffa",
+			"type": "shell",
+			"command": "g++",
+			"args": ["-std=c++17", "-Wall", "-o", "ZadanieC_Warnsdorff", "ZadanieC_Warnsdorff.cpp"],
 			"group": {
 				"kind": "build",
 				"isDefault": true
