@@ -57,7 +57,7 @@ Na szachownicy, na określonej pozycji, znajduje się pojedyncza figura - skocze
 
 Rekurencyjne sprawdzanie wszystkich możliwości w około godzinę zwróciło następujący wynik:
 
-
+![bruteforce](https://user-images.githubusercontent.com/57668948/161426511-410c5c6c-9be6-4caf-9595-288f4b95d23e.png)
 
 ### Algorytm Warnsdorffa
 
@@ -65,4 +65,4 @@ Algorytm Warnsdorffa pozwala na rozwiązanie tego problemu w czasie liniowym.
 
 Jedno z rozwiązań (każde uruchomienie programu startuje z losowego pola szachownicy) zwrócone natychmiast:
 
-
+![warnsdorff](https://user-images.githubusercontent.com/57668948/161426521-709eb4fa-713e-4530-9f5f-e653fbad59cb.png)
