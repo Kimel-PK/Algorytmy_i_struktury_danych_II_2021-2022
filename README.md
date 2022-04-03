@@ -17,23 +17,23 @@ Stan wykonania zadań
 
 ## [Zestaw 3](Zestaw%2003)
 
-- :black_square_button: Zadanie A
-- :black_square_button: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 4](Zestaw%2004)
 
-- :black_square_button: Zadanie A
+- :white_check_mark: Zadanie A
 
 ## [Zestaw 5](Zestaw%2005)
 
-- :black_square_button: Zadanie A
-- :black_square_button: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 6](Zestaw%2006)
 
-- :black_square_button: Zadanie A
-- :black_square_button: Zadanie B
-- :black_square_button: Zadanie C
+- :white_check_mark: Zadanie A
+- :question: Zadanie B
+- :question: Zadanie C
 
 ## [Zestaw 7](Zestaw%2007)
 
