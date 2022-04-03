@@ -35,19 +35,31 @@ Mogą być wykorzystywane jednocześnie w trakcie trwania fazy. Dodatkowo węzł
 Wszystkie trasy, które muszą znaleźć się w ciągu jednego pełnego cyklu to:
 
 ```text
-A -> 2 -> 1 -> 4 -> (B/C)
+A -> 2 -> 1 -> 4 -> B
+A -> 2 -> 1 -> 4 -> C
 A -> 2 -> 1 -> D
 B -> 3 -> A
 B -> 3 -> 2 -> 1 -> 4 -> C
 B -> 3 -> 2 -> 1 -> D
 D -> 4 -> 3 -> A
-D -> 4 -> (B/C)
+D -> 4 -> B
+D -> 4 -> C
 E -> 1 -> 4 -> 3 -> A
-E -> 1 -> 4 -> (B/C)
+E -> 1 -> 4 -> B
+E -> 1 -> 4 -> C
 E -> 1 -> D
 ```
 
-Aby rozwiązać problem musimy znaleźć najmniejszą liczbę podzbiorów powyższego zbioru, w którym trasy nie mogą mieć wspólnych węzłów `1`, `2`, `3`, `4` chyba że mają wspólny początek.
+Niektóre z tych tras mają wspólne początki i węzły, dlatego nie ma sensu rozdzielać ich do osobnych faz. Skompresowana lista tras wygląda nastepująco:
+
+```text
+A -> 2 -> 1 -> D/4 -> B/C
+B -> 3 -> A/2 -> 1 -> D/4 -> C
+D -> 4 -> B/C/3 -> A
+E -> 1 -> D/4 -> B/C/3 -> A
+```
+
+> Wygląda na to że w tej konstrukcji skrzyżowania od razu otrzymujemy odpowiedź, że najmniejsza możliwa ilość faz to 4
 
 ## Zadanie C
 
