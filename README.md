@@ -18,20 +18,20 @@ Stan wykonania zadań
 ## [Zestaw 3](Zestaw%2003)
 
 - :white_check_mark: Zadanie A
-- :white_check_mark: Zadanie B
+- :question: Zadanie B
 
 ## [Zestaw 4](Zestaw%2004)
 
-- :white_check_mark: Zadanie A
+- :question: Zadanie A
 
 ## [Zestaw 5](Zestaw%2005)
 
-- :white_check_mark: Zadanie A
-- :white_check_mark: Zadanie B
+- :question: Zadanie A
+- :question: Zadanie B
 
 ## [Zestaw 6](Zestaw%2006)
 
-- :white_check_mark: Zadanie A
+- :question: Zadanie A
 - :question: Zadanie B
 - :question: Zadanie C
 
