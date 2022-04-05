@@ -32,8 +32,8 @@ Stan wykonania zadań
 ## [Zestaw 6](Zestaw%2006)
 
 - :question: Zadanie A
-- :question: Zadanie B
-- :question: Zadanie C
+- :warning: Zadanie B
+- :warning: Zadanie C
 
 ## [Zestaw 7](Zestaw%2007)
 
