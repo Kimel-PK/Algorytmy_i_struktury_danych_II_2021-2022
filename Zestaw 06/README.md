@@ -16,6 +16,10 @@ Wykorzystując jedną z napisanych przez Państwa implementacji grafów oraz zad
 
 ## Odpowiedź
 
+Schemat ulic z zaznaczonymi wszystkimi możliwymi trasami prezentuje się następująco:
+
+![graf trasy](https://user-images.githubusercontent.com/57668948/162615332-a09dd554-055f-4a08-9e29-eac567b2dc90.png)
+
 Budujemy graf, w którym wierzchołkami są możliwe trasy, a krawędzie istnieją pomiędzy trasami, które ze sobą kolidują:
 
 ![graf schemat](https://user-images.githubusercontent.com/57668948/162614923-c94434ed-7e44-487a-b4ff-e12f474b8e32.png)
