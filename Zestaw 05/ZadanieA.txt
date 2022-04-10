@@ -1,0 +1,5 @@
+digraph G {
+	A -> {A, B, C}
+	B -> {A, B, C}
+	C -> {A, B, C}
+}
