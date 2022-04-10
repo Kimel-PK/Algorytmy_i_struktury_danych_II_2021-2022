@@ -32,4 +32,6 @@ Na szachownicy, na określonej pozycji, znajduje się pojedyncza figura - skocze
 
 ### Depth-first search
 
-Rozwiązanie w trakcie przygotowania
+Program `ZadanieC` rozpoczyna poszukiwanie z losowego pola szachownicy i wykorzystuje rekurencyjne przeszukiwanie grafu wgłąb.
+
+> Wyszukiwanie trwa bardzo długo chociaż nie powinno, wymagana poprawa
