@@ -5,19 +5,17 @@ class Skoczek {
 	
 	public:
 	
+	int poleStartowe;
 	int obecnePole;
 	
 	Skoczek (int start) {
 		obecnePole = start;
+		poleStartowe = start;
 	}
 	
 	void OdwiedźPole (int numer) {
 		odwiedzonePola.push_back (numer);
 		obecnePole = numer;
-		
-		if (odwiedzonePola.size() == 64) {
-			std::cout << "zwycięztwo" << std::endl;
-		}
 	}
 	
 	bool CzyOdwiedzono (int numer) {
@@ -28,7 +26,14 @@ class Skoczek {
 		return false;
 	}
 	
+	bool CzyZamknietaSciezka () {
+		if (poleStartowe == obecnePole)
+			return true;
+		return false;
+	}
+	
 	Skoczek& operator= (Skoczek& skoczek) {
+		poleStartowe = skoczek.poleStartowe;
 		obecnePole = skoczek.obecnePole;
 		odwiedzonePola = skoczek.odwiedzonePola;
 		
