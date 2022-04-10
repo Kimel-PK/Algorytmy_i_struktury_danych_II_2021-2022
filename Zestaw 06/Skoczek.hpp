@@ -1,6 +1,7 @@
 #include <list>
 #include <iostream>
 
+template <int ROZMIAR>
 class Skoczek {
 	
 	public:
@@ -9,36 +10,33 @@ class Skoczek {
 	int obecnePole;
 	
 	Skoczek (int start) {
-		obecnePole = start;
 		poleStartowe = start;
+		for (int i = 0; i < ROZMIAR * ROZMIAR; i++) {
+			odwiedzonePola[i] = false;
+		}
+		OdwiedźPole (start);
 	}
 	
 	void OdwiedźPole (int numer) {
-		odwiedzonePola.push_back (numer);
+		odwiedzonePola [numer] = true;
+		trasa.push_back (numer);
 		obecnePole = numer;
 	}
 	
 	bool CzyOdwiedzono (int numer) {
-		for (int numerPola : odwiedzonePola) {
-			if (numerPola == numer)
-				return true;
-		}
-		return false;
-	}
-	
-	bool CzyZamknietaSciezka () {
-		if (poleStartowe == obecnePole)
-			return true;
-		return false;
+		return odwiedzonePola [numer];
 	}
 	
 	Skoczek& operator= (Skoczek& skoczek) {
 		poleStartowe = skoczek.poleStartowe;
 		obecnePole = skoczek.obecnePole;
-		odwiedzonePola = skoczek.odwiedzonePola;
+		for (int i = 0; i < ROZMIAR * ROZMIAR; i++)
+			odwiedzonePola [i] = skoczek.odwiedzonePola [i];
+		trasa = skoczek.trasa;
 		
 		return *this;
 	}
 	
-	std::list<int> odwiedzonePola;
+	bool odwiedzonePola[ROZMIAR * ROZMIAR];
+	std::list<int> trasa;
 };
