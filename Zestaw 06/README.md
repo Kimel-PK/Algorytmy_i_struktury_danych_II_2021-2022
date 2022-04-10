@@ -16,65 +16,16 @@ Wykorzystując jedną z napisanych przez Państwa implementacji grafów oraz zad
 
 ## Odpowiedź
 
-Problem można zobrazować następującym grafem:
+Budujemy graf, w którym wierzchołkami są możliwe trasy, a krawędzie istnieją pomiędzy trasami, które ze sobą kolidują:
 
-![graph](https://user-images.githubusercontent.com/57668948/161397237-a6c51793-355e-41ea-981b-4c83699667a7.png)
+![graf schemat](https://user-images.githubusercontent.com/57668948/162614923-c94434ed-7e44-487a-b4ff-e12f474b8e32.png)
 
-Schemat wygląda trochę jak rondo. Węzły `1`, `2`, `3`, `4` mogą należeć tylko do jednej trasy jednocześnie, ale trasa może się "rozgałęziać".
-
-Przykładowo trasy:
-
-```text
-E -> 1 -> D
-E -> 1 -> 4 -> C
-E -> 1 -> 4 -> B
-```
-
-Mogą być wykorzystywane jednocześnie w trakcie trwania fazy. Dodatkowo węzły `2` i `3` są "nie blokowane" to znaczy, że samochody jadące z ulicy `B` mogą bezkolizyjnie skręcać w ulicę `A`.
-
-Wszystkie trasy, które muszą znaleźć się w ciągu jednego pełnego cyklu to:
-
-```text
-A -> 2 -> 1 -> 4 -> B
-A -> 2 -> 1 -> 4 -> C
-A -> 2 -> 1 -> D
-B -> 3 -> A
-B -> 3 -> 2 -> 1 -> 4 -> C
-B -> 3 -> 2 -> 1 -> D
-D -> 4 -> 3 -> A
-D -> 4 -> B
-D -> 4 -> C
-E -> 1 -> 4 -> 3 -> A
-E -> 1 -> 4 -> B
-E -> 1 -> 4 -> C
-E -> 1 -> D
-```
-
-Niektóre z tych tras mają wspólne początki i węzły, dlatego nie ma sensu rozdzielać ich do osobnych faz. Skompresowana lista tras wygląda nastepująco:
-
-```text
-A -> 2 -> 1 -> D/4 -> B/C
-B -> 3 -> A/2 -> 1 -> D/4 -> C
-D -> 4 -> B/C/3 -> A
-E -> 1 -> D/4 -> B/C/3 -> A
-```
-
-> Wygląda na to że w tej konstrukcji skrzyżowania od razu otrzymujemy odpowiedź, że najmniejsza możliwa ilość faz to 4
+Aby znaleźć najmniejszą ilość cykli musimy zastosować algorytm kolorowania grafu. Każdy kolor odpowiada jednej fazie w cyklu
 
 ## Zadanie C
 
 Na szachownicy, na określonej pozycji, znajduje się pojedyncza figura - skoczek (koń). Proszę znaleźć taką trasę skoczka po szachownicy, aby każde pole było odwiedzone jedynie raz. Można wykorzystać jedną z wcześniej zaimplementowanych przez Państwa reprezentacji grafu lub skorzystać z gotowych bibliotek. Państwa wynik końcowy proszę przedstawić w formie rysunku.
 
-### Rozwiązanie BruteForce
+### Depth-first search
 
-Rekurencyjne sprawdzanie wszystkich możliwości w około godzinę zwróciło następujący wynik:
-
-![bruteforce](https://user-images.githubusercontent.com/57668948/161426511-410c5c6c-9be6-4caf-9595-288f4b95d23e.png)
-
-### Algorytm Warnsdorffa
-
-Algorytm Warnsdorffa pozwala na rozwiązanie tego problemu w czasie liniowym.
-
-Jedno z rozwiązań (każde uruchomienie programu startuje z losowego pola szachownicy) zwrócone natychmiast:
-
-![warnsdorff](https://user-images.githubusercontent.com/57668948/161426521-709eb4fa-713e-4530-9f5f-e653fbad59cb.png)
+Rozwiązanie w trakcie przygotowania
