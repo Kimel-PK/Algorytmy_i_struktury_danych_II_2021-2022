@@ -2,6 +2,13 @@
 
 Stan wykonania zadań
 
+Legenda:
+
+- :white_check_mark: - zadanie wykonane i oddane na zajęciach
+- :question: - zadanie wykonane, ale jeszcze nie oddane (możliwe, że będą potrzebne poprawki)
+- :warning: - zadanie wykonane, ale zawierające krytyczne błędy (do poprawy)
+- :black_square_button: - zadanie niewykonane
+
 ## [Zestaw 1](Zestaw%2001)
 
 - :white_check_mark: Zadanie A
@@ -33,7 +40,7 @@ Stan wykonania zadań
 
 - :question: Zadanie A
 - :question: Zadanie B
-- :warning: Zadanie C
+- :question: Zadanie C
 
 ## [Zestaw 7](Zestaw%2007)
 
