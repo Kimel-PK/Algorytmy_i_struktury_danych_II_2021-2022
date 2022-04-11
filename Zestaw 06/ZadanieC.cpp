@@ -1,17 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <bits/stdc++.h>
 
 #include "Skoczek.hpp"
 #include "ADTgraph.hpp"
 
-#define ROZMIAR 6
+#define ROZMIAR 8
 
 using namespace std;
 
-void BudujSzachownice (ADTgraph& graf) {
+void BudujSzachownice (ADTgraph& graf, int* tablica_warnsdorffa) {
 	for (int i = 0; i < ROZMIAR * ROZMIAR; i++) {
 		graf.addVertex (i);
+		tablica_warnsdorffa [i] = 0;
 	}
 	for (int x = 0; x < ROZMIAR; x++) {
 		for (int y = 0; y < ROZMIAR; y++) {
@@ -22,45 +24,53 @@ void BudujSzachownice (ADTgraph& graf) {
 			x += 1;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			// ruch GPP
 			x += 1;
 			y -= 1;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			// ruch PPD
 			y -= 2;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			// ruch DDP
 			x -= 1;
 			y -= 1;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			// ruch DDL
 			x -= 2;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			// ruch LLD
 			x -= 1;
 			y += 1;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			// ruch LLG
 			y += 2;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			// ruch GGL
 			x += 1;
 			y += 1;
 			if (x >= 0 && x < ROZMIAR && y >= 0 && y < ROZMIAR) {
 				graf.addEdge (oy * ROZMIAR + ox, y * ROZMIAR + x);
+				tablica_warnsdorffa [oy * ROZMIAR + ox]++;
 			}
 			x = ox;
 			y = oy;
@@ -99,7 +109,34 @@ void WyswietlTrase (list<int>& trasa) {
 	}
 }
 
-int kroki = 10;
+// <kod z internetu>
+// https://www.geeksforgeeks.org/sorting-a-map-by-value-in-c-stl/
+
+// Comparator function to sort pairs
+// according to second value
+bool cmp (pair<int, int>& a, pair<int, int>& b) {
+	return a.second < b.second;
+}
+  
+// Function to sort the map according
+// to value in a (key-value) pairs
+vector<pair<int, int>> SortujMape (map<int, int>& M) {
+	
+	// Declare vector of pairs
+	vector<pair<int, int>> A;
+	
+	// Copy key-value pair from Map
+	// to vector of pairs
+	for (auto& it : M) {
+		A.push_back(it);
+	}
+	
+	// Sort using comparator function
+	sort(A.begin(), A.end(), cmp);
+	
+	return A;
+}
+// </kod z internetu>
 
 void Szukaj (ADTgraph& graf, Skoczek<ROZMIAR> skoczek) {
 	
@@ -107,7 +144,7 @@ void Szukaj (ADTgraph& graf, Skoczek<ROZMIAR> skoczek) {
 		for (ADTgraph::Edge edge : graf.neighbours (skoczek.trasa.front ())) {
 			if (skoczek.trasa.back() == edge.end_node) {
 				cout << "=============================" << endl;
-				cout << "Odnaleziono trasę" << endl;
+				cout << "Odnaleziono trasę" << endl << endl;
 				WyswietlTrase (skoczek.trasa);
 				cout << endl;
 				return;
@@ -116,10 +153,21 @@ void Szukaj (ADTgraph& graf, Skoczek<ROZMIAR> skoczek) {
 		return;
 	}
 	
+	map<int, int> krawedzie;
+	
 	for (ADTgraph::Edge edge : graf.neighbours (skoczek.obecnePole)) {
-		if (!skoczek.CzyOdwiedzono (edge.end_node)) {
+		krawedzie.insert (make_pair (edge.end_node, skoczek.tablica_warnsdorffa [edge.end_node]));
+	}
+	
+	vector<pair<int, int>> posortowaneKrawedzie = SortujMape (krawedzie);
+	
+	for (pair<int, int> edge : posortowaneKrawedzie) {
+		if (!skoczek.CzyOdwiedzono (edge.first)) {
 			Skoczek temp = skoczek;
-			temp.OdwiedźPole (edge.end_node);
+			temp.OdwiedźPole (edge.first);
+			for (ADTgraph::Edge edge : graf.neighbours (temp.obecnePole)) {
+				temp.tablica_warnsdorffa [edge.end_node]--;
+			}
 			Szukaj (graf, temp);
 		}
 	}
@@ -130,8 +178,9 @@ int main () {
 	srand (time (NULL));
 	cout << "Generowanie szachownicy" << endl;
 	ADTgraph graf;
-	BudujSzachownice (graf);
+	int tablica_warnsdorffa [ROZMIAR * ROZMIAR];
+	BudujSzachownice (graf, tablica_warnsdorffa);
 	int losuj = rand() % (ROZMIAR * ROZMIAR);
 	cout << "Wyszukiwanie tras startując z pola " << losuj << endl;
-	Szukaj (graf, Skoczek<ROZMIAR>(losuj));
+	Szukaj (graf, Skoczek<ROZMIAR>(losuj, tablica_warnsdorffa));
 }
