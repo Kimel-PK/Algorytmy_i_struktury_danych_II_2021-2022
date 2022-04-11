@@ -30,8 +30,11 @@ Aby znaleźć najmniejszą ilość cykli musimy zastosować algorytm kolorowania
 
 Na szachownicy, na określonej pozycji, znajduje się pojedyncza figura - skoczek (koń). Proszę znaleźć taką trasę skoczka po szachownicy, aby każde pole było odwiedzone jedynie raz. Można wykorzystać jedną z wcześniej zaimplementowanych przez Państwa reprezentacji grafu lub skorzystać z gotowych bibliotek. Państwa wynik końcowy proszę przedstawić w formie rysunku.
 
-### Depth-first search
+### Depth-first search z heurystyką Warnsdorff'a
 
-Program `ZadanieC` rozpoczyna poszukiwanie z losowego pola szachownicy i wykorzystuje rekurencyjne przeszukiwanie grafu wgłąb.
+Program `ZadanieC` rozpoczyna poszukiwanie z losowego pola szachownicy i wykorzystuje rekurencyjne przeszukiwanie grafu wgłąb. Pola, z których można wykonać najmniej ruchów są odwiedzane w pierwszej kolejności. Program szuka wszystkich możliwości (po wyszukaniu kilku polecam go przerywać przez `Ctrl+C`)
 
-> Wyszukiwanie trwa bardzo długo chociaż nie powinno, wymagana poprawa
+Przykładowa trasa odnaleziona przez program:
+
+![warnsdorff](https://user-images.githubusercontent.com/57668948/162686002-4cb5d574-9fb6-4815-873a-dbf825389c75.png)
+
