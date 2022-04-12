@@ -2,7 +2,7 @@
 
 ## Zadanie A
 
-Proszę zaimplementować ADT graph, posiadający wszystkie operacje z zadania A w zestawie 4. Tym razem proszę wykorzystać reprezentację w której dla każdego wierzchołka przechowywana jest list sąsiadów. Sprawdzić złożoność obliczeniową wybranej operacji i porównać z zadaniem `A` zestawu 4.
+Proszę zaimplementować ADT graph, posiadający wszystkie operacje z `zadania A` w `zestawie 4`. Tym razem proszę wykorzystać reprezentację w której dla każdego wierzchołka przechowywana jest list sąsiadów. Sprawdzić złożoność obliczeniową wybranej operacji i porównać z `zadaniem A` `zestawu 4`.
 
 ## Zadanie B
 
@@ -12,7 +12,7 @@ Proszę się zastanowić jak wykorzystać reprezentację grafową do rozwiązani
 
 Sygnalizacja świetlna w każdej "fazie" powinna zezwalać na ruch przez skrzyżowanie jedynie tym samochodom, których trajektorie nie będą się przecinać. Aby usprawnić działanie skrzyżowania, liczba tych etapów powinna być jak najmniejsza.
 
-Wykorzystując jedną z napisanych przez Państwa implementacji grafów oraz zadanie A z poprzedniego zestawu proszę narysować reprezentację grafową takiego skrzyżowania.
+Wykorzystując jedną z napisanych przez Państwa implementacji grafów oraz `zadanie A` z poprzedniego zestawu proszę narysować reprezentację grafową takiego skrzyżowania.
 
 ## Odpowiedź
 

@@ -2,7 +2,7 @@
 
 ## Zadanie A
 
-Implementacja zbioru wykorzystująca jednowymiarowe tablice o skończonym rozmiarze z zadania A w zestawie 1 zakłada, że każdemu elementowi zbioru można przypisać liczbę naturalną `1 ... N`. Proszę zaimplementować funkcje implementujące takie przyporządkowanie dla zbiorów:
+Implementacja zbioru wykorzystująca jednowymiarowe tablice o skończonym rozmiarze z `zadania A` w `zestawie 1` zakłada, że każdemu elementowi zbioru można przypisać liczbę naturalną `1 ... N`. Proszę zaimplementować funkcje implementujące takie przyporządkowanie dla zbiorów:
 
 - liczb całkowitych `n`, `n + 1`, `n + 2`, ... , `m` gdzie `n < m`
 - liczb całkowitych `n`, `n + 2`, `n + 4`, ... , `m` gdzie `n < m`
@@ -30,9 +30,9 @@ Tym razem proszę wykrzystać haszowanie otwarte. Państwa implementację prosz�
 
 ## Zadanie C
 
-Korzystając z wyników zadań `A` oraz `B` z zestawu 1 oraz zadania `B` z obecnego zestawu proszę się zastanowić która implementacja jest lepsza i w jakiej sytuacji.
+Korzystając z wyników zadań `A` oraz `B` z `zestawu 1` oraz `zadania B` z obecnego zestawu proszę się zastanowić która implementacja jest lepsza i w jakiej sytuacji.
 
-Aby ułatwić Państwu zadanie, proszę założyć, że elementami przechowywanymi we wszystkich zbiorach są słowa składające się z 4 liter (bez polskich znaków). Można wykorzystać zadanie `A`.
+Aby ułatwić Państwu zadanie, proszę założyć, że elementami przechowywanymi we wszystkich zbiorach są słowa składające się z 4 liter (bez polskich znaków). Można wykorzystać `zadanie A`.
 
 ### Odpowiedź
 

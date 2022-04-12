@@ -13,7 +13,7 @@ Państwa implementację proszę oprzeć na wybranej, omawianej wcześniej, imple
 
 ## Zadanie B
 
-Proszę zaimplementować kolejkę priorytetową `priorityQueueBinary` z operacjami jak w zadaniu `A` ale tym razem proszę oprzeć swoją implementacje o kopiec binarny. Proszę zbadać złożoność obliczeniową operacji usuwania z kolejki elementu o najmniejszym "priorytecie" (wykres, wartość teoretyczna, dyskusja) oraz porównać wyniki z zadaniem `A`.
+Proszę zaimplementować kolejkę priorytetową `priorityQueueBinary` z operacjami jak w `zadaniu A` ale tym razem proszę oprzeć swoją implementacje o kopiec binarny. Proszę zbadać złożoność obliczeniową operacji usuwania z kolejki elementu o najmniejszym "priorytecie" (wykres, wartość teoretyczna, dyskusja) oraz porównać wyniki z `zadaniem A`.
 
 ### UWAGI
 

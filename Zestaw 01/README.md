@@ -21,7 +21,7 @@ Państwa implementację proszę wykorzystać w programie, który bada złożono�
 
 ## Zadanie B
 
-Proszę zaimplementować typ danych `setLinked` reprezentujący matematyczny zbiór oraz wszystkie operacje z zadania A. Tym razem w implementacji proszę wykorzystać posortowane listy łączone.
+Proszę zaimplementować typ danych `setLinked` reprezentujący matematyczny zbiór oraz wszystkie operacje z `zadania A`. Tym razem w implementacji proszę wykorzystać posortowane listy łączone.
 
 Podobnie jak w poprzednim zadaniu państwa implementację proszę wykorzystać w programie, który bada złożoność obliczeniową poszczególnych operacji. Dla każdej z zaimplementowanych operacji program powinien produkować jeden plik, który może być uruchomiony z wykorzystaniem programu gnuplot. W wiadomości e-mail proszę opisać podejście wykorzystane do badania złożoności obliczeniowej i skonfrontować Państwa wyniki z wartościami teoretycznymi.
 
