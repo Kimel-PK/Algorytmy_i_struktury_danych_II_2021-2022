@@ -49,7 +49,7 @@ Legenda:
 ## [Zestaw 8 - Word ladder, sortowanie topologiczne](Zestaw%2008)
 
 - :question: Zadanie A
-- :black_square_button: Zadanie B
+- :question: Zadanie B
 
 ## [Zestaw 9 - Algorytm Dijkstry](Zestaw%2009)
 
