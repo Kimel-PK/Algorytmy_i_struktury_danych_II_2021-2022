@@ -43,11 +43,13 @@ class ADTgraph {
 		return false;
 	}
 	
-	struct Edge;
-	
-	// zwraca wszystkie krawędzie wychodzące z węzła
-	std::list<Edge> neighbours (std::string x) {
-		return graf.at (x).edges;
+	// zwraca sąsiadów x
+	std::list<std::string> neighbours (std::string x) {
+		std::list<std::string> węzły;
+		for (Edge krawędź : graf.at (x).edges) {
+			węzły.push_back (krawędź.end_node);
+		}
+		return węzły;
 	}
 	
 	// dodaje krawędź pomiędzy x i y
@@ -108,6 +110,7 @@ class ADTgraph {
 			if (edge.end_node == y)
 				return edge.weight;
 		}
+		return -1;
 	}
 	
 	// zwraca ilość węzłów w grafie

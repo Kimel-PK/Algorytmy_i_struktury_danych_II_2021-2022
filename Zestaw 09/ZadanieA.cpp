@@ -53,16 +53,16 @@ int Dijkstra (ADTgraph& graf, string start, string koniec) {
 		if (obecnyElement.second > odleglosci.at (obecnyElement.first))
 			continue;
 		
-		for (ADTgraph::Edge edge : graf.neighbours (obecnyElement.first)) {
-			int dystans = obecnyElement.second + edge.weight;
+		for (string sąsiad : graf.neighbours (obecnyElement.first)) {
+			int dystans = obecnyElement.second + graf.getEdgeValue (obecnyElement.first, sąsiad);
 			
-			if (odleglosci.count (edge.end_node) == 0)
-				odleglosci[edge.end_node] = INT_MAX;
+			if (odleglosci.count (sąsiad) == 0)
+				odleglosci[sąsiad] = INT_MAX;
 			
 			// rozważamy nową ścieżkę tylko wtedy gdy jest lepsza od już istniejącej
-			if (dystans < odleglosci.at (edge.end_node)) {
-				odleglosci[edge.end_node] = dystans;
-				kolejka.Enqueue (edge.end_node, dystans);
+			if (dystans < odleglosci.at (sąsiad)) {
+				odleglosci[sąsiad] = dystans;
+				kolejka.Enqueue (sąsiad, dystans);
 			}
 		}
 	}
