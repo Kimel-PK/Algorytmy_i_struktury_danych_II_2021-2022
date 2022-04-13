@@ -37,9 +37,8 @@ int main () {
 	
 	cout << endl << "Wypisywanie sąsiadów wierzchołka 2" << endl << endl;
 	
-	int* neighbours = graf.neighbours(2);
-	for (int i = 0; neighbours[i] != -1; i++) {
-		cout << neighbours[i] << endl;
+	for (int sąsiad : graf.neighbours(2)) {
+		cout << sąsiad << endl;
 	}
 	
 	cout << endl << "Usuwanie krawędzi (2, 4)" << endl << endl;

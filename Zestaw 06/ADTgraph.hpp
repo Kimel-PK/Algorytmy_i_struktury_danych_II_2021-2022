@@ -8,15 +8,17 @@ class ADTgraph {
 	
 	ADTgraph () {}
 	
-	void addVertex (int x) { // dodaje x do grafu
+	// dodaje x do grafu
+	void addVertex (int x) {
 		Node temp;
 		graf.insert (std::make_pair (x, temp));
 	}
 	
-	void removeVertex (int x) { // usuwa x z grafu
+	// usuwa x z grafu
+	void removeVertex (int x) {
 		graf.erase (x);
 		
-		for (pair<int, Node> para : graf) {
+		for (std::pair<int, Node> para : graf) {
 			for (std::list<Edge>::iterator p = para.second.edges.begin(); p != para.second.edges.end(); ++p) {
 				if (p->end_node == x) {
 					para.second.edges.erase (p);
@@ -26,7 +28,8 @@ class ADTgraph {
 		}
 	}
 	
-	bool adjacent (int x, int y) { // sprawdzanie, czy istnieje krawędź pomiędzy x oraz y
+	// sprawdzanie, czy istnieje krawędź pomiędzy x oraz y
+	bool adjacent (int x, int y) {
 		for (Edge edge : graf.at (x).edges) {
 			if (edge.end_node == y)
 				return true;
@@ -34,13 +37,17 @@ class ADTgraph {
 		return false;
 	}
 	
-	struct Edge;
-	
-	std::list<Edge> neighbours (int x) { // zwraca sąsiadów x
-		return graf.at (x).edges;
+	// zwraca sąsiadów x
+	std::list<int> neighbours (int x) {
+		std::list<int> węzły;
+		for (Edge krawędź : graf.at (x).edges) {
+			węzły.push_back (krawędź.end_node);
+		}
+		return węzły;
 	}
 	
-	void addEdge (int x, int y) { // dodaje krawędź pomiędzy x i y
+	// dodaje krawędź pomiędzy x i y
+	void addEdge (int x, int y) {
 		if (graf.count(x) == 1 && graf.count(y) == 1) {
 			Edge edge;
 			edge.end_node = y;
@@ -48,7 +55,8 @@ class ADTgraph {
 		}
 	}
 	
-	void removeEdge (int x, int y) { // usuwa krawędź pomiędzy x i y]
+	// usuwa krawędź pomiędzy x i y
+	void removeEdge (int x, int y) {
 		for (std::list<Edge>::iterator p = graf.at (x).edges.begin(); p != graf.at (x).edges.end(); ++p) {
 			if (p->end_node == y) {
 				graf.at (x).edges.erase (p);
@@ -57,28 +65,33 @@ class ADTgraph {
 		}
 	}
 	
-	void setVertexValue (int x, int v) { // kojarzy wartość v z wierchołkiem x
+	// kojarzy wartość v z wierchołkiem x
+	void setVertexValue (int x, int v) {
 		graf.at (x).weight = v;
 	}
 	
-	int getVertexValue (int x) { // zwraca wartość skojarzoną z x
+	// zwraca wartość skojarzoną z x
+	int getVertexValue (int x) {
 		if (graf.count (x) == 0)
 			return -1;
 		return graf.at (x).weight;
 	}
 	
-	void setEdgeValue (int x, int y, int v) { // kojarzy wartość v z krawędzią pomiędzy x oraz y
+	// kojarzy wartość v z krawędzią pomiędzy x oraz y
+	void setEdgeValue (int x, int y, int v) {
 		for (Edge edge : graf.at (x).edges) {
 			if (edge.end_node == y)
 				edge.weight = v;
 		}
 	}
 	
-	int getEdgeValue (int x, int y) { // zwraca wartość skojarzoną z krawędzią pomiędzy x oraz y
+	// zwraca wartość skojarzoną z krawędzią pomiędzy x oraz y
+	int getEdgeValue (int x, int y) {
 		for (Edge edge : graf.at (x).edges) {
 			if (edge.end_node == y)
 				return edge.weight;
 		}
+		return -1;
 	}
 	
 	int size () {
@@ -89,7 +102,7 @@ class ADTgraph {
 		std::ofstream plik;
 		plik.open (filename + ".txt");
 		plik << "digraph G {" << std::endl;
-		for (pair<int, Node> para : graf) {
+		for (std::pair<int, Node> para : graf) {
 			for (Edge edge : para.second.edges) {
 				plik << '\t' << para.first << " -> " << edge.end_node << std::endl;
 			}
