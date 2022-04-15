@@ -12,7 +12,7 @@ Plik `wynik.txt` rozdzielony tabulatorami - [otwórz](wynik.txt)
 
 Wyniki w postaci tabeli
 
-
+![tabela czasy przejazdów](https://user-images.githubusercontent.com/57668948/163556255-216ca5d3-cbb6-4dae-bdfb-6800d90b9851.png)
 
 ## Zadanie B
 
@@ -27,6 +27,6 @@ Korzystająć z [tabelki czasów przejazdu](czasy.txt) (dane pochodzą z google 
 > ```
 >
 > powinno skutkować stworzeniem pliku:
->
->
->
+> 
+> ![example_dot](https://user-images.githubusercontent.com/57668948/163556280-83456e9f-f9b3-43ab-a637-2832c21ad4ae.png)
+> 
