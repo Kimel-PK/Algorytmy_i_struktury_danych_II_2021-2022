@@ -58,8 +58,8 @@ Legenda:
 
 ## [Zestaw 10 - ???](Zestaw%2010)
 
-- :black_square_button: Zadanie A
-- :black_square_button: Zadanie B
+- :question: Zadanie A
+- :warning: Zadanie B
 
 ## [Zestaw 11 - ???](Zestaw%2011)
 
