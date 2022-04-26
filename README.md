@@ -25,22 +25,22 @@ Legenda:
 ## [Zestaw 3 - Kolejka priorytetowa](Zestaw%2003)
 
 - :white_check_mark: Zadanie A
-- :question: Zadanie B
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 4 - Graf (macierz sąsiedztwa)](Zestaw%2004)
 
-- :question: Zadanie A
+- :white_check_mark: Zadanie A
 
 ## [Zestaw 5 - Graphviz](Zestaw%2005)
 
-- :question: Zadanie A
-- :question: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 6 - Graf (lista sąsiadów), problem skoczka szachowego](Zestaw%2006)
 
-- :question: Zadanie A
-- :question: Zadanie B
-- :question: Zadanie C
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
+- :white_check_mark: Zadanie C
 
 ## [Zestaw 7 - Minimalizacja faz sygnalizacji świetlnej](Zestaw%2007)
 
@@ -48,8 +48,8 @@ Legenda:
 
 ## [Zestaw 8 - Word ladder, sortowanie topologiczne](Zestaw%2008)
 
-- :question: Zadanie A
-- :question: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 9 - Algorytm Dijkstry](Zestaw%2009)
 
