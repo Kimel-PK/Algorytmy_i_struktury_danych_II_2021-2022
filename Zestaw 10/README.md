@@ -30,3 +30,13 @@ Korzystająć z [tabelki czasów przejazdu](czasy.txt) (dane pochodzą z google 
 >
 > ![example_dot](https://user-images.githubusercontent.com/57668948/163556280-83456e9f-f9b3-43ab-a637-2832c21ad4ae.png)
 >
+
+### Rozwiązanie
+
+Wpisujemy do programu miasto startowe i końcowe, a następnie otrzymujemy plik `graf.dot` służący do wygenerowania grafu przez bibliotekę `dot` z zaznaczoną najkrótszą trasą pomiędzy podanymi miastami z zachowanymi współrzędnymi miast.
+
+Wygenerowany plik `graf.dot` zamieniamy w `graf.png` poleceniem biblioteki `Graphviz`:
+
+```text
+dot -Kfdp -n -Tpng graf.dot -o graf.png
+```

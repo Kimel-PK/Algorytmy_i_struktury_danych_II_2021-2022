@@ -8,45 +8,39 @@
 
 using namespace std;
 
-map<string, map<string, int>> FloydWarshall (ADTgraph& graf) {
+pair <map<string, map<string, int>>, map<string, map<string, string>>> FloydWarshall (ADTgraph& graf) {
+	// https://pl.wikipedia.org/wiki/Algorytm_Floyda-Warshalla
 	
 	map<string, map<string, int>> d;
+	map<string, map<string, string>> poprzednik;
 	
-	// dla każdego wierzchołka v1 w V[G] wykonaj
 	for (string v1 : graf.getVertices()) {
-		// dla każdego wierzchołka v2 w V[G] wykonaj
 		for (string v2 : graf.getVertices()) {
-			// d[v1][v2] = nieskończone
 			d [v1][v2] = INT_MAX;
+			poprzednik [v1][v2] = "NULL";
 		}
-		// d[v1][v1] = 0
 		d [v1][v1] = 0;
 	}
-	// dla każdej krawędzi (v1,v2) w E[G]
 	for (string v1 : graf.getVertices()) {
 		for (string v2 : graf.getVertices()) {
 			if (graf.getEdgeValue (v1, v2) > -1) {
-				// d[v1][v2] = w(v1,v2)
 				d [v1][v2] = graf.getEdgeValue (v1, v2);
+				poprzednik [v1][v2] = v1;
 			}
 		}
 	}
-	// dla każdego wierzchołka u w V[G] wykonaj
 	for (string u : graf.getVertices()) {
-		// dla każdego wierzchołka v1 w V[G] wykonaj
 		for (string v1 : graf.getVertices()) {
-			// dla każdego wierzchołka v2 w V[G] wykonaj
 			for (string v2 : graf.getVertices()) {
-				// jeżeli d[v1][v2] > d[v1][u] + d[u][v2] to
 				if (d [v1][v2] > d [v1][u] + d [u][v2] && d [v1][u] != INT_MAX && d [u][v2] != INT_MAX) {
-					// d[v1][v2] = d[v1][u] + d[u][v2]
 					d [v1][v2] = d [v1][u] + d [u][v2];
+					poprzednik [v1][v2] = poprzednik [u][v2];
 				}
 			}
 		}
 	}
 	
-	return d;
+	return make_pair (d, poprzednik);
 }
 
 int main () {
@@ -79,22 +73,41 @@ int main () {
 	
 	ofstream grafPlik("graf.dot");
 	
-	map<string, map<string, int>> wyniki = FloydWarshall (graf);
-	grafPlik << "graph G {" << endl;
-	for (pair<string, map<string, int>> rekord : wyniki) {
-		grafPlik << rekord.first << " [pos=\"" << wspolrzedne[rekord.first].second << "," << wspolrzedne[rekord.first].first << "!\"];" << endl;
+	pair <map<string, map<string, int>>, map<string, map<string, string>>> wyniki = FloydWarshall (graf);
+	
+	cout << "Wpisz miasto początkowe" << endl; 
+	while (cin >> miastoA) {
+		if (graf.exist (miastoA)) {
+			break;
+		}
+		cout << "Nie odnaleziono miasta, spróbuj ponownie!" << endl;
+	}
+	cout << "Wpisz miasto końcowe" << endl;
+	while (cin >> miastoB) {
+		if (graf.exist (miastoB)) {
+			break;
+		}
+		cout << "Nie odnaleziono miasta, spróbuj ponownie!" << endl;
 	}
 	
-	vector<string> miasta;
-	for (pair<string, map<string,int>> miasto : wyniki) {
-		miasta.push_back (miasto.first);
+	list<string> path;
+	path.push_front (miastoB);
+	while (path.back() != miastoA) {
+		path.push_back (wyniki.second[miastoA][path.back()]);
 	}
-	for (unsigned int i = 0; i < miasta.size(); i++) {
-		for (unsigned int j = i + 1; j < miasta.size(); j++) {
-			grafPlik << miasta[i] << " -- " << miasta[j] << " [label=\"" << wyniki[miasta[i]][miasta[j]] << "\"];" << endl;
+	
+	grafPlik << "graph G {" << endl;
+	string prev = "NULL";
+	for (string node : path) {
+		grafPlik << node << " [pos=\"" << wspolrzedne[node].second << "," << wspolrzedne[node].first << "!\"];" << endl;
+		if (prev != "NULL") {
+			grafPlik << node << " -- " << prev << " [label=\"" << wyniki.first[node][prev] << "\"];" << endl;
 		}
+		prev = node;
 	}
 	grafPlik << "}";
+	
+	cout << "Trasa została zapisana do pliku 'graf.dot'" << endl;
 	
 	grafPlik.close();
 }
