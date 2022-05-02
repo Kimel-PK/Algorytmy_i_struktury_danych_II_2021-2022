@@ -53,16 +53,16 @@ int Dijkstra (ADTgraph& graf, string start, string koniec) {
 		if (obecnyElement.second > odleglosci.at (obecnyElement.first))
 			continue;
 		
-		for (string sąsiad : graf.neighbours (obecnyElement.first)) {
-			int dystans = obecnyElement.second + graf.getEdgeValue (obecnyElement.first, sąsiad);
+		for (string neighbour : graf.neighbours (obecnyElement.first)) {
+			int dystans = obecnyElement.second + graf.getEdgeValue (obecnyElement.first, neighbour);
 			
-			if (odleglosci.count (sąsiad) == 0)
-				odleglosci[sąsiad] = INT_MAX;
+			if (odleglosci.count (neighbour) == 0)
+				odleglosci[neighbour] = INT_MAX;
 			
 			// rozważamy nową ścieżkę tylko wtedy gdy jest lepsza od już istniejącej
-			if (dystans < odleglosci.at (sąsiad)) {
-				odleglosci[sąsiad] = dystans;
-				kolejka.Enqueue (sąsiad, dystans);
+			if (dystans < odleglosci.at (neighbour)) {
+				odleglosci[neighbour] = dystans;
+				kolejka.Enqueue (neighbour, dystans);
 			}
 		}
 	}
@@ -78,12 +78,12 @@ int main () {
 	list<string> pokoje = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 	
 	cout << endl << "Droga do klatki schodowej" << endl;
-	for (string pokój : pokoje) {
-		cout << pokój << " => A - długość trasy: " << Dijkstra (graf, pokój, "A") << endl;
+	for (string pokoj : pokoje) {
+		cout << pokoj << " => A - długość trasy: " << Dijkstra (graf, pokoj, "A") << endl;
 	}
 	
 	cout << endl << "Droga do ubikacji" << endl;
-	for (string pokój : pokoje) {
-		cout << pokój << " => J - długość trasy: " << Dijkstra (graf, pokój, "J") << endl;
+	for (string pokoj : pokoje) {
+		cout << pokoj << " => J - długość trasy: " << Dijkstra (graf, pokoj, "J") << endl;
 	}
 }

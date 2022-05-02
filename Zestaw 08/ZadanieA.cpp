@@ -74,12 +74,12 @@ void SzukajSciezki (ADTgraph& graf, string start, string koniec) {
 		kolejka.pop_front();
 		
 		// dla każdego sąsiada słowa jeśli nie zostało jeszcze odwiedzone oznacz je jako odwiedzone i dołóż do kolejki
-		for (string sąsiad : graf.neighbours (wezel.first)) {
-			if (odwiedzone.count(sąsiad) == 0) {
-				odwiedzone[sąsiad] = true;
+		for (string neighbour : graf.neighbours (wezel.first)) {
+			if (odwiedzone.count(neighbour) == 0) {
+				odwiedzone[neighbour] = true;
 				list<string> temp = wezel.second;
 				temp.push_back (wezel.first);
-				kolejka.push_back(make_pair (sąsiad, temp));
+				kolejka.push_back(make_pair (neighbour, temp));
 			}
 		}
 	}

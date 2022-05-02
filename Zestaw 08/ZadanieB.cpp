@@ -67,8 +67,8 @@ int main() {
 	cout << "Kolejność wykonywania kroków" << endl << endl;
 	
 	int i = 1;
-	for (string węzeł : topologicalSort(graf)) {
-		cout << i << ". " << graf.getVertexValue (węzeł) << endl;
+	for (string node : topologicalSort(graf)) {
+		cout << i << ". " << graf.getVertexValue (node) << endl;
 		i++;
 	}
 	

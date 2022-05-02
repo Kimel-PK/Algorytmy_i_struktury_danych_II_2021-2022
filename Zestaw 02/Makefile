@@ -11,10 +11,10 @@ all: ZadanieA.x ZadanieB.x
 	$(CXX) $(CFLAGS) -c -o $@ $<
 
 ZadanieA.x: ZadanieA.o
-ZadanieA.o: ZadanieA.cpp SetSimpleInt.hpp SetSimpleIntEven.hpp SetSimpleChar.hpp SetSimpleCharTuple.hpp
+ZadanieA.o: ZadanieA.cpp SetSimple.hpp
 
 ZadanieB.x: ZadanieB.o
-ZadanieB.o: ZadanieB.cpp SetHashed.hpp LinkedList.hpp
+ZadanieB.o: ZadanieB.cpp SetHashed.hpp
 
 clean:
 	$(RM) *.[ox] *.exe *.exe.stackdump

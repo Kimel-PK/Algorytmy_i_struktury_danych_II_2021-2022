@@ -45,20 +45,20 @@ class ADTgraph {
 	
 	// zwraca listę wierzchołków w grafie
 	std::list<std::string> getVertices () {
-		std::list<std::string> węzły;
-		for (std::pair<std::string, Node> węzeł : graf) {
-			węzły.push_back (węzeł.first);
+		std::list<std::string> nodes;
+		for (std::pair<std::string, Node> node : graf) {
+			nodes.push_back (node.first);
 		}
-		return węzły;
+		return nodes;
 	}
 	
 	// zwraca sąsiadów x
 	std::list<std::string> neighbours (std::string x) {
-		std::list<std::string> węzły;
-		for (Edge krawędź : graf.at (x).edges) {
-			węzły.push_back (krawędź.end_node);
+		std::list<std::string> nodes;
+		for (Edge edge : graf.at (x).edges) {
+			nodes.push_back (edge.end_node);
 		}
-		return węzły;
+		return nodes;
 	}
 	
 	// dodaje krawędź pomiędzy x i y

@@ -8,14 +8,14 @@ class ADTgraph {
 	
 	ADTgraph () {}
 	
-	 // dodaje x do grafu
+	// dodaje x do grafu
 	void addVertex (std::string x, int v = 0) {
 		Node temp;
 		temp.weight = v;
 		graf.insert (std::make_pair (x, temp));
 	}
 	
-	 // usuwa x z grafu
+	// usuwa x z grafu
 	void removeVertex (std::string x) {
 		graf.erase (x);
 		
@@ -29,12 +29,12 @@ class ADTgraph {
 		}
 	}
 	
-	 // zwraca czy wierzchołek x istnieje w grafie
+	// zwraca czy wierzchołek x istnieje w grafie
 	bool exist (std::string x) {
 		return (graf.count (x) == 0) ? false : true;
 	}
 	
-	 // sprawdzanie, czy istnieje krawędź pomiędzy x oraz y
+	// sprawdzanie, czy istnieje krawędź pomiędzy x oraz y
 	bool adjacent (std::string x, std::string y) {
 		for (Edge edge : graf.at (x).edges) {
 			if (edge.end_node.compare (y) == 0)
@@ -45,11 +45,11 @@ class ADTgraph {
 	
 	// zwraca sąsiadów x
 	std::list<std::string> neighbours (std::string x) {
-		std::list<std::string> węzły;
-		for (Edge krawędź : graf.at (x).edges) {
-			węzły.push_back (krawędź.end_node);
+		std::list<std::string> nodes;
+		for (Edge edge : graf.at (x).edges) {
+			nodes.push_back (edge.end_node);
 		}
-		return węzły;
+		return nodes;
 	}
 	
 	// dodaje krawędź pomiędzy x i y

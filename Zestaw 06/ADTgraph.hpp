@@ -39,11 +39,11 @@ class ADTgraph {
 	
 	// zwraca sąsiadów x
 	std::list<int> neighbours (int x) {
-		std::list<int> węzły;
-		for (Edge krawędź : graf.at (x).edges) {
-			węzły.push_back (krawędź.end_node);
+		std::list<int> nodes;
+		for (Edge edge : graf.at (x).edges) {
+			nodes.push_back (edge.end_node);
 		}
-		return węzły;
+		return nodes;
 	}
 	
 	// dodaje krawędź pomiędzy x i y

@@ -54,17 +54,17 @@ pair<int, list<string>> Dijkstra (ADTgraph& graf, string start, string koniec) {
 		if (obecnyElement.second > odleglosci.at (obecnyElement.first).second)
 			continue;
 		
-		for (string sąsiad : graf.neighbours (obecnyElement.first)) {
-			int dystans = obecnyElement.second + graf.getEdgeValue (obecnyElement.first, sąsiad);
+		for (string neighbour : graf.neighbours (obecnyElement.first)) {
+			int dystans = obecnyElement.second + graf.getEdgeValue (obecnyElement.first, neighbour);
 			
-			if (odleglosci.count (sąsiad) == 0)
-				odleglosci[sąsiad].second = INT_MAX;
+			if (odleglosci.count (neighbour) == 0)
+				odleglosci[neighbour].second = INT_MAX;
 			
 			// rozważamy nową ścieżkę tylko wtedy gdy jest lepsza od już istniejącej
-			if (dystans < odleglosci.at (sąsiad).second) {
-				odleglosci[sąsiad].first = obecnyElement.first;
-				odleglosci[sąsiad].second = dystans;
-				kolejka.Enqueue (sąsiad, dystans);
+			if (dystans < odleglosci.at (neighbour).second) {
+				odleglosci[neighbour].first = obecnyElement.first;
+				odleglosci[neighbour].second = dystans;
+				kolejka.Enqueue (neighbour, dystans);
 			}
 		}
 	}
@@ -88,8 +88,8 @@ int main () {
 	
 	cout << endl << "Najkrótsza droga z aneksu kuchennego do pokoju szefa" << endl;
 	pair<int, list<string>> dijkstra = Dijkstra (graf, "I", "D");
-	for (string pokój : dijkstra.second) {
-		cout << pokój << " => ";
+	for (string pokoj : dijkstra.second) {
+		cout << pokoj << " => ";
 	}
 	cout << dijkstra.first << " kroków" << endl;
 }

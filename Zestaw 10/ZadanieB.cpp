@@ -66,23 +66,23 @@ int main () {
 	
 	dane.close();
 	
-	map <string, pair<double, double>> współrzędne;
+	map <string, pair<double, double>> wspolrzedne;
 	
-	ifstream współrzędnePlik("positions.txt");
+	ifstream wspolrzednePlik("positions.txt");
 	string miasto;
 	double x, y;
-	while (współrzędnePlik >> miasto >> x >> y) {
-		współrzędne.insert (make_pair (miasto, make_pair (x, y)));
+	while (wspolrzednePlik >> miasto >> x >> y) {
+		wspolrzedne.insert (make_pair (miasto, make_pair (x, y)));
 	}
 	
-	współrzędnePlik.close();
+	wspolrzednePlik.close();
 	
 	ofstream grafPlik("graf.dot");
 	
 	map<string, map<string, int>> wyniki = FloydWarshall (graf);
 	grafPlik << "graph G {" << endl;
 	for (pair<string, map<string, int>> rekord : wyniki) {
-		grafPlik << rekord.first << " [pos=\"" << współrzędne[rekord.first].second << "," << współrzędne[rekord.first].first << "!\"];" << endl;
+		grafPlik << rekord.first << " [pos=\"" << wspolrzedne[rekord.first].second << "," << wspolrzedne[rekord.first].first << "!\"];" << endl;
 	}
 	
 	vector<string> miasta;
