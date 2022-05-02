@@ -9,18 +9,19 @@ class ADTgraph {
 	ADTgraph () {}
 	
 	// dodaje x do grafu
-	void addVertex (int x) {
+	void addVertex (std::string x, int v = 0) {
 		Node temp;
+		temp.weight = v;
 		graf.insert (std::make_pair (x, temp));
 	}
 	
 	// usuwa x z grafu
-	void removeVertex (int x) {
+	void removeVertex (std::string x) {
 		graf.erase (x);
 		
-		for (std::pair<int, Node> para : graf) {
-			for (std::list<Edge>::iterator p = para.second.edges.begin(); p != para.second.edges.end(); ++p) {
-				if (p->end_node == x) {
+		for (std::pair<std::string, Node> para : graf) {
+			for (typename std::list<Edge>::iterator p = para.second.edges.begin(); p != para.second.edges.end(); ++p) {
+				if (p->end_node.compare (x) != 0) {
 					para.second.edges.erase (p);
 					break;
 				}
@@ -28,18 +29,32 @@ class ADTgraph {
 		}
 	}
 	
+	// zwraca czy wierzchołek x istnieje w grafie
+	bool exist (std::string x) {
+		return (graf.count (x) == 0) ? false : true;
+	}
+	
 	// sprawdzanie, czy istnieje krawędź pomiędzy x oraz y
-	bool adjacent (int x, int y) {
+	bool adjacent (std::string x, std::string y) {
 		for (Edge edge : graf.at (x).edges) {
-			if (edge.end_node == y)
+			if (edge.end_node.compare (y) == 0)
 				return true;
 		}
 		return false;
 	}
 	
+	// zwraca listę wierzchołków w grafie
+	std::list<std::string> getVertices () {
+		std::list<std::string> węzły;
+		for (std::pair<std::string, Node> węzeł : graf) {
+			węzły.push_back (węzeł.first);
+		}
+		return węzły;
+	}
+	
 	// zwraca sąsiadów x
-	std::list<int> neighbours (int x) {
-		std::list<int> węzły;
+	std::list<std::string> neighbours (std::string x) {
+		std::list<std::string> węzły;
 		for (Edge krawędź : graf.at (x).edges) {
 			węzły.push_back (krawędź.end_node);
 		}
@@ -47,16 +62,17 @@ class ADTgraph {
 	}
 	
 	// dodaje krawędź pomiędzy x i y
-	void addEdge (int x, int y) {
+	void addEdge (std::string x, std::string y, int v = 0) {
 		if (graf.count(x) == 1 && graf.count(y) == 1) {
 			Edge edge;
+			edge.weight = v;
 			edge.end_node = y;
 			graf.at (x).edges.push_back (edge);
 		}
 	}
 	
 	// dodaje krawędź pomiędzy x i y w obu kierunkach
-	void addUndirectedEdge (int x, int y, int v = 0) {
+	void addUndirectedEdge (std::string x, std::string y, int v = 0) {
 		if (graf.count(x) == 1 && graf.count(y) == 1) {
 			Edge edge;
 			edge.weight = v;
@@ -68,8 +84,8 @@ class ADTgraph {
 	}
 	
 	// usuwa krawędź pomiędzy x i y
-	void removeEdge (int x, int y) {
-		for (std::list<Edge>::iterator p = graf.at (x).edges.begin(); p != graf.at (x).edges.end(); ++p) {
+	void removeEdge (std::string x, std::string y) {
+		for (typename std::list<Edge>::iterator p = graf.at (x).edges.begin(); p != graf.at (x).edges.end(); ++p) {
 			if (p->end_node == y) {
 				graf.at (x).edges.erase (p);
 				return;
@@ -78,19 +94,19 @@ class ADTgraph {
 	}
 	
 	// kojarzy wartość v z wierchołkiem x
-	void setVertexValue (int x, int v) {
+	void setVertexValue (std::string x, int v) {
 		graf.at (x).weight = v;
 	}
 	
 	// zwraca wartość skojarzoną z x
-	int getVertexValue (int x) {
+	int getVertexValue (std::string x) {
 		if (graf.count (x) == 0)
 			return -1;
 		return graf.at (x).weight;
 	}
 	
 	// kojarzy wartość v z krawędzią pomiędzy x oraz y
-	void setEdgeValue (int x, int y, int v) {
+	void setEdgeValue (std::string x, std::string y, int v) {
 		for (Edge edge : graf.at (x).edges) {
 			if (edge.end_node == y)
 				edge.weight = v;
@@ -98,24 +114,31 @@ class ADTgraph {
 	}
 	
 	// zwraca wartość skojarzoną z krawędzią pomiędzy x oraz y
-	int getEdgeValue (int x, int y) {
+	int getEdgeValue (std::string x, std::string y) {
 		for (Edge edge : graf.at (x).edges) {
 			if (edge.end_node == y)
 				return edge.weight;
 		}
+		return -1;
 	}
 	
+	// zwraca ilość węzłów w grafie
 	int size () {
 		return graf.size ();
 	}
 	
+	// zapisuje graf do pliku txt o podanej nazwie do wykorzystania w programie "dot"
 	void save (std::string filename) {
 		std::ofstream plik;
 		plik.open (filename + ".txt");
 		plik << "digraph G {" << std::endl;
-		for (std::pair<int, Node> para : graf) {
+		for (std::pair<std::string, Node> para : graf) {
 			for (Edge edge : para.second.edges) {
-				plik << '\t' << para.first << " -> " << edge.end_node << std::endl;
+				plik << '\t' << para.first << " -> " << edge.end_node;
+				if (edge.weight > 0)
+					plik << " [label=\"" << edge.weight << "\"]" << std::endl;
+				else
+					plik << std::endl;
 			}
 		}
 		plik << "}";
@@ -124,7 +147,7 @@ class ADTgraph {
 	
 	struct Edge {
 		int weight = 0;
-		int end_node = -1;
+		std::string end_node;
 	};
 	
 	private:
@@ -134,5 +157,5 @@ class ADTgraph {
 		std::list<Edge> edges;
 	};
 	
-	std::map<int, Node> graf;
+	std::map<std::string, Node> graf;
 };

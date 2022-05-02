@@ -1,95 +1,101 @@
+#include <map>
+#include <iostream>
+
 #include "ADTgraph.hpp"
 
 using namespace std;
 
+map<string, int> kolorujGraf (ADTgraph& graf) {
+	map<string, int> kolory;
+	
+	list<string> nodes = graf.getVertices ();
+	while (nodes.size() > 0) {
+		long unsigned int max_neighbours = 0;
+		string max_node;
+		for (string node : nodes) {
+			long unsigned int neighbours = graf.neighbours (node).size();
+			if (neighbours >= max_neighbours) {
+				max_node = node;
+				max_neighbours = neighbours;
+			}
+		}
+		
+		int kolor = 0;
+		bool wszystkie = false;
+		while (!wszystkie) {
+			wszystkie = true;
+			for (string neighbour : graf.neighbours (max_node)) {
+				if (kolory.count (neighbour) == 1 && kolory[neighbour] == kolor) {
+					kolor++;
+					wszystkie = false;
+					break;
+				}
+			}
+		}
+		
+		kolory[max_node] = kolor;
+		nodes.remove (max_node);
+	}
+	
+	return kolory;
+}
+
 int main () {
 	
 	ADTgraph graf;
-	graf.addVertex (1);
-	graf.addVertex (2);
-	graf.addVertex (3);
-	graf.addVertex (4);
-	graf.addVertex (5);
-	graf.addVertex (6);
-	graf.addVertex (7);
-	graf.addVertex (8);
-	graf.addVertex (9);
-	graf.addVertex (10);
-	graf.addVertex (11);
-	graf.addVertex (12);
-	graf.addVertex (13);
-	graf.addEdge (1, 10);
-	graf.addEdge (1, 6);
-	graf.addEdge (1, 5);
-	graf.addEdge (1, 7);
-	graf.addEdge (1, 11);
-	graf.addEdge (1, 8);
-	graf.addEdge (2, 10);
-	graf.addEdge (2, 6);
-	graf.addEdge (2, 5);
-	graf.addEdge (2, 11);
-	graf.addEdge (2, 12);
-	graf.addEdge (2, 7);
-	graf.addEdge (2, 8);
-	graf.addEdge (2, 9);
-	graf.addEdge (3, 10);
-	graf.addEdge (3, 11);
-	graf.addEdge (3, 12);
-	graf.addEdge (3, 13);
-	graf.addEdge (3, 6);
-	graf.addEdge (4, 7);
-	graf.addEdge (4, 10);
-	graf.addEdge (5, 1);
-	graf.addEdge (5, 11);
-	graf.addEdge (5, 7);
-	graf.addEdge (5, 8);
-	graf.addEdge (5, 9);
-	graf.addEdge (5, 2);
-	graf.addEdge (5, 12);
-	graf.addEdge (6, 7);
-	graf.addEdge (6, 1);
-	graf.addEdge (6, 2);
-	graf.addEdge (6, 3);
-	graf.addEdge (6, 11);
-	graf.addEdge (6, 12);
-	graf.addEdge (6, 13);
-	graf.addEdge (7, 12);
-	graf.addEdge (7, 11);
-	graf.addEdge (7, 2);
-	graf.addEdge (7, 2);
-	graf.addEdge (7, 5);
-	graf.addEdge (7, 6);
-	graf.addEdge (7, 4);
-	graf.addEdge (7, 10);
-	graf.addEdge (8, 2);
-	graf.addEdge (8, 1);
-	graf.addEdge (8, 5);
-	graf.addEdge (8, 12);
-	graf.addEdge (8, 11);
-	graf.addEdge (9, 2);
-	graf.addEdge (9, 12);
-	graf.addEdge (9, 5);
-	graf.addEdge (10, 1);
-	graf.addEdge (10, 2);
-	graf.addEdge (10, 3);
-	graf.addEdge (10, 7);
-	graf.addEdge (10, 4);
-	graf.addEdge (11, 3);
-	graf.addEdge (11, 2);
-	graf.addEdge (11, 1);
-	graf.addEdge (11, 7);
-	graf.addEdge (11, 8);
-	graf.addEdge (11, 5);
-	graf.addEdge (11, 6);
-	graf.addEdge (12, 3);
-	graf.addEdge (12, 2);
-	graf.addEdge (12, 6);
-	graf.addEdge (12, 5);
-	graf.addEdge (12, 7);
-	graf.addEdge (12, 8);
-	graf.addEdge (12, 9);
-	graf.addEdge (13, 3);
-	graf.addEdge (13, 6);
+	graf.addVertex ("A-B");
+	graf.addVertex ("A-C");
+	graf.addVertex ("A-D");
+	graf.addVertex ("B-A");
+	graf.addVertex ("B-C");
+	graf.addVertex ("B-D");
+	graf.addVertex ("D-A");
+	graf.addVertex ("D-B");
+	graf.addVertex ("D-C");
+	graf.addVertex ("E-A");
+	graf.addVertex ("E-B");
+	graf.addVertex ("E-C");
+	graf.addVertex ("E-D");
+	graf.addUndirectedEdge ("A-B", "E-A");
+	graf.addUndirectedEdge ("A-B", "B-D");
+	graf.addUndirectedEdge ("A-B", "B-C");
+	graf.addUndirectedEdge ("A-B", "D-A");
+	graf.addUndirectedEdge ("A-B", "E-B");
+	graf.addUndirectedEdge ("A-B", "D-B");
+	graf.addUndirectedEdge ("A-C", "E-A");
+	graf.addUndirectedEdge ("A-C", "B-D");
+	graf.addUndirectedEdge ("A-C", "B-C");
+	graf.addUndirectedEdge ("A-C", "E-B");
+	graf.addUndirectedEdge ("A-C", "E-C");
+	graf.addUndirectedEdge ("A-C", "D-A");
+	graf.addUndirectedEdge ("A-C", "D-B");
+	graf.addUndirectedEdge ("A-C", "D-C");
+	graf.addUndirectedEdge ("A-D", "E-A");
+	graf.addUndirectedEdge ("A-D", "E-B");
+	graf.addUndirectedEdge ("A-D", "E-C");
+	graf.addUndirectedEdge ("A-D", "E-D");
+	graf.addUndirectedEdge ("A-D", "B-D");
+	graf.addUndirectedEdge ("B-A", "D-A");
+	graf.addUndirectedEdge ("B-A", "E-A");
+	graf.addUndirectedEdge ("B-C", "E-B");
+	graf.addUndirectedEdge ("B-C", "D-A");
+	graf.addUndirectedEdge ("B-C", "D-B");
+	graf.addUndirectedEdge ("B-C", "D-C");
+	graf.addUndirectedEdge ("B-C", "E-C");
+	graf.addUndirectedEdge ("B-D", "D-A");
+	graf.addUndirectedEdge ("B-D", "E-B");
+	graf.addUndirectedEdge ("B-D", "E-C");
+	graf.addUndirectedEdge ("B-D", "E-D");
+	graf.addUndirectedEdge ("D-A", "E-C");
+	graf.addUndirectedEdge ("D-A", "E-B");
+	graf.addUndirectedEdge ("D-A", "E-A");
+	graf.addUndirectedEdge ("D-B", "E-C");
+	graf.addUndirectedEdge ("D-B", "E-B");
+	graf.addUndirectedEdge ("D-C", "E-C");
 	
+	map<string, int> kolory = kolorujGraf (graf);
 	
+	for (pair<string, int> para : kolory) {
+		cout << para.first << " - " << para.second << endl;
+	}
 }
