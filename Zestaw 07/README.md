@@ -30,4 +30,4 @@ B-D - 3
 
 Otrzymujemy 4 fazy cyklu prezentujące się w nastepujący sposób:
 
-
+![fazy skrzyżowania](https://user-images.githubusercontent.com/57668948/166220431-57d7c139-7ac5-4674-b0a4-62fd42b89620.png)
