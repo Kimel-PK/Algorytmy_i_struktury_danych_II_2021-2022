@@ -59,7 +59,7 @@ Legenda:
 ## [Zestaw 10 - Algorytm Floyda Warszalla](Zestaw%2010)
 
 - :question: Zadanie A
-- :warning: Zadanie B
+- :question: Zadanie B
 
 ## [Zestaw 11 - Drzewo rozpinające graf](Zestaw%2011)
 
