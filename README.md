@@ -44,7 +44,7 @@ Legenda:
 
 ## [Zestaw 7 - Minimalizacja faz sygnalizacji świetlnej](Zestaw%2007)
 
-- :black_square_button: Zadanie A
+- :question: Zadanie A
 
 ## [Zestaw 8 - Word ladder, sortowanie topologiczne](Zestaw%2008)
 
@@ -56,17 +56,17 @@ Legenda:
 - :question: Zadanie A
 - :question: Zadanie B
 
-## [Zestaw 10 - ???](Zestaw%2010)
+## [Zestaw 10 - Algorytm Floyda Warszalla](Zestaw%2010)
 
 - :question: Zadanie A
 - :warning: Zadanie B
 
-## [Zestaw 11 - ???](Zestaw%2011)
+## [Zestaw 11 - Drzewo rozpinające graf](Zestaw%2011)
 
 - :black_square_button: Zadanie A
 - :black_square_button: Zadanie B
 
-## [Zestaw 12 - ???](Zestaw%2012)
+## [Zestaw 12 - Badanie cykliczności i spójności](Zestaw%2012)
 
 - :black_square_button: Zadanie A
 - :black_square_button: Zadanie B
