@@ -68,5 +68,5 @@ Legenda:
 
 ## [Zestaw 12 - Badanie cykliczności i spójności](Zestaw%2012)
 
-- :black_square_button: Zadanie A
-- :black_square_button: Zadanie B
+- :question: Zadanie A
+- :question: Zadanie B
