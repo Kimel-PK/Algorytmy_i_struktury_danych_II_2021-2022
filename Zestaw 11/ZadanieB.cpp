@@ -10,6 +10,9 @@
 
 using namespace std;
 
+// DSU (Disjoint Set Union) to struktura pozwalająca
+// na dodawanie krawędzi do grafu, którego wierzchołki nie istnieją
+// i testowanie czy dwa wierzchołki grafu są połączone
 class DSU {
 	int* parent;
 	int* rank;
@@ -25,14 +28,15 @@ public:
 		}
 	}
 	
-	// Find function
+	// funkcja poszukiwania cyklu w grafie
 	int find(int i) {
 		if (parent[i] == -1)
 			return i;
-
+		
 		return parent[i] = find(parent[i]);
 	}
-	// union function
+	
+	// funkcja łącząca dwa podzbiory
 	void unite(int x, int y) {
 		int s1 = find(x);
 		int s2 = find(y);
@@ -50,13 +54,14 @@ public:
 	}
 };
 
-bool sortbysec(const pair<pair<int, int>, double> &a, const pair<pair<int, int>, double> &b) {
+// funkcja sortująca listę krawędzi po wagach
+bool sortbysec (const pair<pair<int, int>, double> &a, const pair<pair<int, int>, double> &b) {
 	return (a.second < b.second);
 }
 
 ADTgraph<N> kruskals_mst(ADTgraph<N>& graf) {
 	
-	// 1. Sort all edges
+	// posortuj wszystkie krawędzie ze względu na wagę
 	vector <pair<pair<int, int>, double>> edges;
 	
 	for (int i = 0; i < N; i++) {
@@ -72,7 +77,7 @@ ADTgraph<N> kruskals_mst(ADTgraph<N>& graf) {
 	
 	ADTgraph<128> wynik;
 	
-	// Initialize the DSU
+	// zainicjalizuj nowy DSU
 	DSU s(N);
 	
 	for (pair<pair<int, int>, double> edge : edges) {
@@ -80,7 +85,7 @@ ADTgraph<N> kruskals_mst(ADTgraph<N>& graf) {
 		int x = edge.first.first;
 		int y = edge.first.second;
 		
-		// take that edge in MST if it does form a cycle
+		// dołącz tą krawędź do drzewa jeśli nie tworzy cyklu
 		if (s.find(x) != s.find(y)) {
 			s.unite(x, y);
 			wynik.addEdge (x, y, w);
