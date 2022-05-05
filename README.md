@@ -64,7 +64,7 @@ Legenda:
 ## [Zestaw 11 - Drzewo rozpinające graf](Zestaw%2011)
 
 - :question: Zadanie A
-- :black_square_button: Zadanie B
+- :question: Zadanie B
 
 ## [Zestaw 12 - Badanie cykliczności i spójności](Zestaw%2012)
 

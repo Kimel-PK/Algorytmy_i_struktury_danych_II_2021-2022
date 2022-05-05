@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <float.h>
+#include <chrono>
 
 #include "ADTgraph.hpp"
 
@@ -75,8 +76,14 @@ int main () {
 		dane.close();
 	}
 	
+	auto start = chrono::system_clock::now();
 	// znajdź minimalne drzewo rozpinające
 	ADTgraph<N> MST = primMST(graf);
+	auto koniec = chrono::system_clock::now();
 	
-	MST.save ("wynik");
+	chrono::duration<double> czasWykonania = koniec - start;
+	
+	cout << "Minimalne drzewo rozpinające znaleziono w " << czasWykonania.count() << " sekund" << endl;
+	
+	MST.save ("wynikA");
 }

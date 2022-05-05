@@ -63,7 +63,7 @@ class ADTgraph {
 		plik.open (filename + ".dot");
 		plik << "graph G {" << std::endl;
 		for (int i = 0; i < SIZE; i++) {
-			for (int j = i; j < SIZE; j++) {
+			for (int j = 0; j < SIZE; j++) {
 				if (graf[i][j] != 0)
 					plik << '\t' << i + 1 << " -- " << j + 1 << " [label = \"" << graf[i][j] << "\"]" << std::endl;
 			}
