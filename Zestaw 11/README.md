@@ -8,7 +8,7 @@ Prowadzicie Państwo serwis internetowy zapewniający dostęp do gier za pośred
 
 Program `ZadanieA` generuje rozwiązanie i zapisuje je do pliku o nazwie `wynikA.dot`, który możemy przedstawić z użyciem biblioteki `Graphviz`. Graf narysowany na podstawie zapisanych danych może i nie należy do najlepszych, ale daje ogólny pogląd na to jak wygląda nasze drzewo.
 
-
+![wynikA](https://user-images.githubusercontent.com/57668948/166916278-137fd5c7-296e-49a5-8892-7d89f396ed93.png)
 
 ## Zadanie B
 
@@ -18,7 +18,7 @@ Proszę znaleźć drzewko z poprzedniego zadania korzystając z `algorytmu Krusk
 
 Program `ZadanieB` generuje rozwiązanie i zapisuje je do pliku o nazwie `wynikB.dot`, podobnie jak w `Zadaniu A` rysunek grafu nie należy do najlepszych.
 
-
+![wynikB](https://user-images.githubusercontent.com/57668948/166916301-7d44f9f4-b9c1-4ec2-ae60-476a30d05a65.png)
 
 W podanych przykładzie `algorytm Prima` wykonuje się w czasie rzedu `0,0001` sekundy.
 
