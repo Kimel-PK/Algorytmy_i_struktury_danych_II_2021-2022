@@ -15,10 +15,10 @@ class Skoczek {
 			odwiedzonePola [i] = false;
 			tablica_warnsdorffa [i] = tablica [i];
 		}
-		OdwiedźPole (start);
+		OdwiedzPole (start);
 	}
 	
-	void OdwiedźPole (int numer) {
+	void OdwiedzPole (int numer) {
 		odwiedzonePola [numer] = true;
 		trasa.push_back (numer);
 		obecnePole = numer;
