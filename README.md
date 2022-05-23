@@ -44,7 +44,7 @@ Legenda:
 
 ## [Zestaw 7 - Minimalizacja faz sygnalizacji świetlnej](Zestaw%2007)
 
-- :question: Zadanie A
+- :white_check_mark: Zadanie A
 
 ## [Zestaw 8 - Word ladder, sortowanie topologiczne](Zestaw%2008)
 
@@ -53,20 +53,20 @@ Legenda:
 
 ## [Zestaw 9 - Algorytm Dijkstry](Zestaw%2009)
 
-- :question: Zadanie A
-- :question: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 10 - Algorytm Floyda Warszalla](Zestaw%2010)
 
-- :question: Zadanie A
-- :question: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 11 - Drzewo rozpinające graf](Zestaw%2011)
 
-- :question: Zadanie A
-- :question: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B
 
 ## [Zestaw 12 - Badanie cykliczności i spójności](Zestaw%2012)
 
-- :question: Zadanie A
-- :question: Zadanie B
+- :white_check_mark: Zadanie A
+- :white_check_mark: Zadanie B

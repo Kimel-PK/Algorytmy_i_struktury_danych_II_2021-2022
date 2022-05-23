@@ -141,8 +141,8 @@ vector<pair<int, int>> SortujMape (map<int, int>& M) {
 void Szukaj (ADTgraph& graf, Skoczek<ROZMIAR> skoczek) {
 	
 	if (skoczek.trasa.size() == ROZMIAR * ROZMIAR) {
-		for (int sąsiad : graf.neighbours (skoczek.trasa.front ())) {
-			if (skoczek.trasa.back() == sąsiad) {
+		for (int neighbour : graf.neighbours (skoczek.trasa.front ())) {
+			if (skoczek.trasa.back() == neighbour) {
 				cout << "=============================" << endl;
 				cout << "Odnaleziono trasę" << endl << endl;
 				WyswietlTrase (skoczek.trasa);
@@ -155,18 +155,18 @@ void Szukaj (ADTgraph& graf, Skoczek<ROZMIAR> skoczek) {
 	
 	map<int, int> krawedzie;
 	
-	for (int sąsiad : graf.neighbours (skoczek.obecnePole)) {
-		krawedzie.insert (make_pair (sąsiad, skoczek.tablica_warnsdorffa [sąsiad]));
+	for (int neighbour : graf.neighbours (skoczek.obecnePole)) {
+		krawedzie.insert (make_pair (neighbour, skoczek.tablica_warnsdorffa [neighbour]));
 	}
 	
 	vector<pair<int, int>> posortowaneKrawedzie = SortujMape (krawedzie);
 	
 	for (pair<int, int> edge : posortowaneKrawedzie) {
 		if (!skoczek.CzyOdwiedzono (edge.first)) {
-			Skoczek temp = skoczek;
-			temp.OdwiedźPole (edge.first);
-			for (int sąsiad : graf.neighbours (temp.obecnePole)) {
-				temp.tablica_warnsdorffa [sąsiad]--;
+			Skoczek<ROZMIAR> temp = skoczek;
+			temp.OdwiedzPole (edge.first);
+			for (int neighbour : graf.neighbours (temp.obecnePole)) {
+				temp.tablica_warnsdorffa [neighbour]--;
 			}
 			Szukaj (graf, temp);
 		}
