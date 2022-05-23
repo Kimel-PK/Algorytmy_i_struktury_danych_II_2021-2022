@@ -23,7 +23,7 @@ void ZbudujGraf (ADTgraph& graf) {
 	graf.addUndirectedEdge ("J", "H", 1);
 	graf.addUndirectedEdge ("H", "G", 1);
 	graf.addUndirectedEdge ("H", "F", 2);
-	graf.addUndirectedEdge ("F", "E", 2);
+	graf.addUndirectedEdge ("F", "E", 1);
 	graf.addUndirectedEdge ("E", "D", 1);
 	graf.addUndirectedEdge ("D", "B", 1);
 	graf.addUndirectedEdge ("G", "F", 1);
