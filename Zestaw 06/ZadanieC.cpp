@@ -117,7 +117,7 @@ void WyswietlTrase (list<int>& trasa) {
 bool cmp (pair<int, int>& a, pair<int, int>& b) {
 	return a.second < b.second;
 }
-  
+
 // Function to sort the map according
 // to value in a (key-value) pairs
 vector<pair<int, int>> SortujMape (map<int, int>& M) {
